@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- shuffle: two paths that cross, each ending in an arrow -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24">
+    <path android:strokeColor="#F4F1EA" android:strokeWidth="2" android:strokeLineCap="round" android:strokeLineJoin="round" android:fillColor="#00000000"
+        android:pathData="M3,7h3.5c4.5,0 6.5,10 11,10H21M3,17h3.5c2,0 3.3,-2 4.4,-4.3M13.1,9.3C14.2,7.9 15.5,7 17.5,7H21M18,4l3,3l-3,3M18,14l3,3l-3,3" />
+</vector>

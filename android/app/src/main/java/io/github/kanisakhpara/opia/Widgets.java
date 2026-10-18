@@ -77,6 +77,12 @@ public final class Widgets {
         return PendingIntent.getActivity(c, link.hashCode(), i, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
+    /** a tap that just opens the app, wherever it was */
+    static PendingIntent openApp(Context c) {
+        Intent i = new Intent(c, MainActivity.class).setAction(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        return PendingIntent.getActivity(c, 0, i, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    }
+
     static long today() { return LocalDate.now().toEpochDay(); }
 
     /** the widget's size on screen in pixels, from what the launcher reports (portrait: min width, max height) */
@@ -170,13 +176,14 @@ public final class Widgets {
             RemoteViews v = new RemoteViews(c.getPackageName(), layout());
             String by = q.optString("by"), src = q.optString("src");
             v.setTextViewText(R.id.quote, q.optString("q"));
-            v.setContentDescription(R.id.quote, q.optString("q") + " " + by + ". " + c.getString(R.string.another_quote));
+            v.setContentDescription(R.id.quote, q.optString("q") + " " + by + ", " + src);
             if (layout() == R.layout.widget_quote_card) { v.setTextViewText(R.id.by, by); v.setTextViewText(R.id.src, src); }
             else v.setTextViewText(R.id.by, "— " + by);
             Intent next = new Intent(c, getClass()).setAction(NEXT_QUOTE).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
             PendingIntent tap = PendingIntent.getBroadcast(c, id, next, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-            v.setOnClickPendingIntent(layout() == R.layout.widget_quote_card ? R.id.quote : R.id.text, tap);
-            v.setOnClickPendingIntent(R.id.logo, open(c, "lens"));
+            v.setOnClickPendingIntent(R.id.shuffle, tap);                 // only the shuffle button changes the quote
+            v.setOnClickPendingIntent(R.id.root, openApp(c));             // a tap anywhere else opens Opia
+            v.setOnClickPendingIntent(R.id.logo, openApp(c));
             return v;
         }
 
