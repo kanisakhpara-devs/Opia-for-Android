@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pick up where you left off: the last thing you worked on, with a preview -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_bg">
+    <ImageView android:id="@+id/preview" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" android:importantForAccessibility="no" />
+    <ImageView android:id="@+id/big" android:layout_width="64dp" android:layout_height="64dp" android:layout_gravity="center" android:layout_marginBottom="20dp"
+        android:visibility="gone" android:importantForAccessibility="no" />
+    <ImageView android:id="@+id/scrim" android:layout_width="match_parent" android:layout_height="80dp" android:layout_gravity="bottom"
+        android:src="@drawable/widget_scrim" android:scaleType="fitXY" android:importantForAccessibility="no" />
+    <LinearLayout android:id="@+id/caption" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="bottom"
+        android:orientation="vertical" android:padding="12dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/w_resume"
+            android:textColor="#D9F4F1EA" android:textSize="11sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" android:ellipsize="end" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="2dp">
+            <ImageView android:id="@+id/kind" android:layout_width="20dp" android:layout_height="20dp" android:importantForAccessibility="no" />
+            <TextView android:id="@+id/name" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="7dp"
+                android:textColor="#FFFFFF" android:textSize="14sp" android:fontFamily="@font/nunito_extrabold" android:maxLines="1" android:ellipsize="end" />
+        </LinearLayout>
+        <TextView android:id="@+id/sub" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#C9C6C0"
+            android:textSize="11.5sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" android:ellipsize="end" android:visibility="gone" />
+    </LinearLayout>
+    <TextView android:id="@+id/empty" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:padding="18dp"
+        android:text="@string/empty_resume" android:textColor="#F4F1EA" android:textSize="13sp" android:fontFamily="@font/nunito_semibold" android:visibility="gone" />
+</FrameLayout>

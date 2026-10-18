@@ -78,6 +78,22 @@ It uses the same music engine as Opia for Windows.
 
 <p><img src="docs/shots/groove-light.png" width="240" alt="Groove song"> <img src="docs/shots/groove-roll.png" width="240" alt="Groove melody grid"></p>
 
+## 🧩 Home-screen widgets
+
+Long-press your home screen, tap **Widgets** and find **Opia**:
+
+| Widget | Size | What it shows |
+| --- | --- | --- |
+| **Quote of the day** | 3 × 4 | A quote worth thinking about, with who said it and where. Tap it for another. |
+| **Quote of the day, short** | 3 × 1 | A short quote in one line. |
+| **Photo of the day** | 2 × 2 | A different photo from Lens every day, favourites first. |
+| **Favourites** | 4 × 1 | Your latest four favourite photos. |
+| **Quick create** | 4 × 1 | Add photos, New picture, Open PDF, or Start me off (a fresh song, playing). |
+| **Recent PDFs** | 3 × 2 | Your last three PDFs, one tap to reopen. |
+| **Pick up where you left off** | 2 × 2 | The last picture, PDF or song you worked on. |
+
+The quotes come with the app: 44 of them, from Seneca and Marcus Aurelius to Feynman, Baldwin, Beckett, Le Guin and Pratchett. Each one is traced to the speech, book or letter it comes from, which is shown underneath. Quotes that are often misattributed are left out. The other widgets show what Opia last saved, so they update when you use the app. All of them can be resized.
+
 ## 📲 Install
 
 1. On your phone, open **[Opia.apk](https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk)** (about 6 MB).

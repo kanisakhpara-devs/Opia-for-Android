@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="w_quote_card">Cita del día</string>
+    <string name="w_quote_card_d">Una cita para pensar, con quién la dijo y dónde. Tócala para ver otra.</string>
+    <string name="w_quote_strip">Cita del día, corta</string>
+    <string name="w_quote_strip_d">Una cita corta en una línea de tu pantalla de inicio. Tócala para ver otra.</string>
+    <string name="w_photo">Foto del día</string>
+    <string name="w_photo_d">Una foto distinta de Lens cada día, primero las favoritas.</string>
+    <string name="w_favs">Favoritas</string>
+    <string name="w_favs_d">Tus cuatro últimas fotos favoritas de Lens.</string>
+    <string name="w_quick">Crear rápido</string>
+    <string name="w_quick_d">Añade fotos, empieza una imagen, abre un PDF o empieza una canción de un toque.</string>
+    <string name="w_pdfs">PDF recientes</string>
+    <string name="w_pdfs_d">Tus tres últimos PDF de Folio, a un toque.</string>
+    <string name="w_resume">Sigue donde lo dejaste</string>
+    <string name="w_resume_d">La última imagen, PDF o canción en la que trabajaste.</string>
+    <string name="open_opia">Abrir Opia</string>
+    <string name="another_quote">Ver otra cita</string>
+    <string name="empty_photos">Añade fotos en Lens y aparecerán aquí.</string>
+    <string name="empty_favs">Toca el corazón de las fotos en Lens para verlas aquí.</string>
+    <string name="empty_pdfs">Los PDF que abras en Folio aparecen aquí.</string>
+    <string name="empty_resume">Crea algo en Imagine, Folio o Groove y aparecerá aquí.</string>
+    <string name="q_photos">Añadir fotos</string>
+    <string name="q_picture">Nueva imagen</string>
+    <string name="q_pdf">Abrir PDF</string>
+    <string name="q_song">Empieza por mí</string>
+    <string name="pages">%d páginas</string>
+    <string name="one_page">1 página</string>
+    <string name="kind_picture">Imagen</string>
+    <string name="kind_doc">PDF</string>
+    <string name="kind_song">Canción</string>
+</resources>

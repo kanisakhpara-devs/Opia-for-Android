@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Quote of the day, one row: the logo, a short quote and who said it -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/widget_bg" android:orientation="horizontal" android:gravity="center_vertical"
+    android:paddingStart="14dp" android:paddingEnd="16dp" android:paddingTop="8dp" android:paddingBottom="8dp">
+    <ImageView android:id="@+id/logo" android:layout_width="36dp" android:layout_height="36dp" android:src="@drawable/ws_lens"
+        android:contentDescription="@string/open_opia" />
+    <LinearLayout android:id="@+id/text" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+        android:layout_marginStart="12dp" android:orientation="vertical" android:gravity="center_vertical" android:background="@drawable/widget_press">
+        <TextView android:id="@+id/quote" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="We shall never surrender." android:textColor="#F4F1EA" android:fontFamily="@font/nunito_extrabold"
+            android:textSize="15sp" android:maxLines="2" android:ellipsize="end" />
+        <TextView android:id="@+id/by" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp"
+            android:text="— Winston Churchill" android:textColor="#9D9BA0" android:fontFamily="@font/nunito_semibold" android:textSize="12sp"
+            android:maxLines="1" android:ellipsize="end" />
+    </LinearLayout>
+</LinearLayout>

@@ -27,6 +27,36 @@
             </intent-filter>
         </activity>
 
+        <!-- home-screen widgets: two quote layouts, photo of the day, favourites, quick create, recent PDFs, pick up where you left off -->
+        <receiver android:name=".Widgets$QuoteCard" android:label="@string/w_quote_card" android:exported="false">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_quote_card_info" />
+        </receiver>
+        <receiver android:name=".Widgets$QuoteStrip" android:label="@string/w_quote_strip" android:exported="false">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_quote_strip_info" />
+        </receiver>
+        <receiver android:name=".Widgets$Photo" android:label="@string/w_photo" android:exported="false">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_photo_info" />
+        </receiver>
+        <receiver android:name=".Widgets$Favourites" android:label="@string/w_favs" android:exported="false">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_favs_info" />
+        </receiver>
+        <receiver android:name=".Widgets$Quick" android:label="@string/w_quick" android:exported="false">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_quick_info" />
+        </receiver>
+        <receiver android:name=".Widgets$RecentPdfs" android:label="@string/w_pdfs" android:exported="false">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_pdfs_info" />
+        </receiver>
+        <receiver android:name=".Widgets$Resume" android:label="@string/w_resume" android:exported="false">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_resume_info" />
+        </receiver>
+
         <!-- hands files to other apps when you tap Share -->
         <provider
             android:name=".ShareProvider"

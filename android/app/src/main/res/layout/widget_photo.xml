@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Photo of the day: the photo fills the card, its name on a shade at the bottom -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_bg">
+    <ImageView android:id="@+id/photo" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitXY" />
+    <ImageView android:id="@+id/scrim" android:layout_width="match_parent" android:layout_height="72dp" android:layout_gravity="bottom"
+        android:src="@drawable/widget_scrim" android:scaleType="fitXY" android:importantForAccessibility="no" />
+    <LinearLayout android:id="@+id/caption" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="bottom"
+        android:orientation="vertical" android:padding="12dp">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/w_photo"
+            android:textColor="#D9F4F1EA" android:textSize="11sp" android:fontFamily="@font/nunito_semibold" />
+        <TextView android:id="@+id/name" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#FFFFFF"
+            android:textSize="14sp" android:fontFamily="@font/nunito_extrabold" android:maxLines="1" android:ellipsize="end" />
+    </LinearLayout>
+    <ImageView android:id="@+id/logo" android:layout_width="24dp" android:layout_height="24dp" android:layout_gravity="top|end" android:layout_margin="10dp"
+        android:src="@drawable/ws_lens" android:contentDescription="@string/open_opia" />
+    <TextView android:id="@+id/empty" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:padding="18dp"
+        android:text="@string/empty_photos" android:textColor="#F4F1EA" android:textSize="14sp" android:fontFamily="@font/nunito_semibold" android:visibility="gone" />
+</FrameLayout>

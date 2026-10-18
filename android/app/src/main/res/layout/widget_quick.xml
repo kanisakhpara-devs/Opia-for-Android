@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Quick create: one tap to each workspace's first step -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_bg"
+    android:orientation="horizontal" android:padding="6dp">
+    <LinearLayout android:id="@+id/q0" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+        android:orientation="vertical" android:gravity="center" android:background="@drawable/widget_press" android:contentDescription="@string/q_photos">
+        <ImageView android:layout_width="38dp" android:layout_height="38dp" android:src="@drawable/ws_lens" android:importantForAccessibility="no" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/q_photos"
+            android:textColor="#F4F1EA" android:textSize="11.5sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" android:ellipsize="end" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/q1" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+        android:orientation="vertical" android:gravity="center" android:background="@drawable/widget_press" android:contentDescription="@string/q_picture">
+        <ImageView android:layout_width="38dp" android:layout_height="38dp" android:src="@drawable/ws_imagine" android:importantForAccessibility="no" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/q_picture"
+            android:textColor="#F4F1EA" android:textSize="11.5sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" android:ellipsize="end" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/q2" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+        android:orientation="vertical" android:gravity="center" android:background="@drawable/widget_press" android:contentDescription="@string/q_pdf">
+        <ImageView android:layout_width="38dp" android:layout_height="38dp" android:src="@drawable/ws_folio" android:importantForAccessibility="no" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/q_pdf"
+            android:textColor="#F4F1EA" android:textSize="11.5sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" android:ellipsize="end" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/q3" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+        android:orientation="vertical" android:gravity="center" android:background="@drawable/widget_press" android:contentDescription="@string/q_song">
+        <ImageView android:layout_width="38dp" android:layout_height="38dp" android:src="@drawable/ws_groove" android:importantForAccessibility="no" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/q_song"
+            android:textColor="#F4F1EA" android:textSize="11.5sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" android:ellipsize="end" />
+    </LinearLayout>
+</LinearLayout>

@@ -2,6 +2,38 @@
 
 Every change to Opia for Android is listed here, newest first, with what was tested and what was not. Work done in a cloud session says so: it was tested in headless Chromium at phone size, not on a phone.
 
+## 0.3: Home-screen widgets (cloud session, 2026-10-18)
+
+**Added** seven home-screen widgets, in the quiet dark card design (A) you picked:
+- **Quote of the day:** a tall 3 × 4 card and a 3 × 1 strip.
+- **Photo of the day:** 2 × 2.
+- **Favourites:** 4 × 1.
+- **Quick create:** 4 × 1, with Add photos, New picture, Open PDF and Start me off.
+- **Recent PDFs:** 3 × 2.
+- **Pick up where you left off:** 2 × 2.
+
+All of them use Nunito, Opia's ink background and the workspace icons, and they are named in English and Spanish.
+
+**Quotes:**
+- 44 quotes in `android/app/src/main/res/raw/quotes.json`, each with its source: Churchill, Seneca, Marcus Aurelius, Epictetus, Feynman, Orwell, both Roosevelts, Kennedy, King, Douglass, Baldwin, Morrison, Beckett, Vonnegut, Le Guin, Pratchett, Douglas Adams, Turing and others.
+- Left out: well-known misattributions, such as "Success is not final…" for Churchill. Also two quotes whose source I couldn't pin down.
+- One quote a day, the same on every quote widget. Tapping the quote moves that widget on to another one; tapping the logo opens Opia.
+- The 3 × 1 strip only uses the 13 short quotes.
+
+**How it works:**
+- A widget can't read the app's storage. So whenever photos, pictures, PDFs or songs change, the app (`www/js/widgets.js`) hands Android a summary and small pictures.
+- Those are: up to ten photo-of-the-day candidates (favourites first), the latest four favourites, the last three PDFs and the last thing you worked on.
+- Only pictures Android doesn't already have are sent, and pictures nothing uses any more are deleted.
+- `Widgets.java` draws the widgets from that, cropping and rounding the pictures to each widget's size.
+- A tap opens the app through an `opia://` link. It goes to that photo, picture, PDF or song, or opens the Groove song already playing. For Add photos and Open PDF it opens a one-tap "Choose" sheet, because Android only lets a page open the file picker after a tap on the page itself.
+
+**Tested:**
+- **In headless Chromium, with a fake Android bridge:** the summary lists favourites first, the right PDFs and the last song (with key and tempo), and nothing is re-sent when nothing changed. Every widget link opens the right place, including a cold start from a widget.
+- **Regressions:** the earlier tests all still pass, with no accessibility violations.
+- **The Java** compiles against the Android 14 framework classes.
+
+**Not tested:** how the widgets look and behave on a real home screen. The layouts are checked when GitHub builds the APK, but launchers differ, so screenshots from your phone are the real test.
+
 ## Website: the download explains itself (cloud session, 2026-10-18)
 
 **Fixed** the website's Download buttons giving no sign that anything had happened. On a phone, Chrome only shows a small bar when a download finishes, and nothing said that the downloaded file *is* the installer.

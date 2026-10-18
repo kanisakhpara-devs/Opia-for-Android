@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="w_quote_card">Quote of the day</string>
+    <string name="w_quote_card_d">A quote to think about, with who said it and where. Tap it for another.</string>
+    <string name="w_quote_strip">Quote of the day, short</string>
+    <string name="w_quote_strip_d">A short quote in one line across your home screen. Tap it for another.</string>
+    <string name="w_photo">Photo of the day</string>
+    <string name="w_photo_d">A different photo from Lens every day, favourites first.</string>
+    <string name="w_favs">Favourites</string>
+    <string name="w_favs_d">Your latest four favourite photos from Lens.</string>
+    <string name="w_quick">Quick create</string>
+    <string name="w_quick_d">Add photos, start a picture, open a PDF or start a song in one tap.</string>
+    <string name="w_pdfs">Recent PDFs</string>
+    <string name="w_pdfs_d">Your last three PDFs in Folio, one tap to reopen.</string>
+    <string name="w_resume">Pick up where you left off</string>
+    <string name="w_resume_d">The last picture, PDF or song you worked on.</string>
+    <string name="open_opia">Open Opia</string>
+    <string name="another_quote">Show another quote</string>
+    <string name="empty_photos">Add photos in Lens and they show up here.</string>
+    <string name="empty_favs">Tap the heart on photos in Lens to see them here.</string>
+    <string name="empty_pdfs">PDFs you open in Folio show up here.</string>
+    <string name="empty_resume">Make something in Imagine, Folio or Groove and it shows up here.</string>
+    <string name="q_photos">Add photos</string>
+    <string name="q_picture">New picture</string>
+    <string name="q_pdf">Open PDF</string>
+    <string name="q_song">Start me off</string>
+    <string name="pages">%d pages</string>
+    <string name="one_page">1 page</string>
+    <string name="kind_picture">Picture</string>
+    <string name="kind_doc">PDF</string>
+    <string name="kind_song">Song</string>
+</resources>

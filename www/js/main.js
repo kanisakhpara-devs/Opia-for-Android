@@ -14,6 +14,26 @@ const App = {
     this.show(Prefs.get('ws', 'lens'));
     if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});     // keep the library when the phone is short of space
     this.bars(); matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => this.bars());
+    const go = location.hash.match(/link=([^&]+)/);      // opened from a home-screen widget
+    if (go) { history.replaceState(null, '', location.pathname); this.link(decodeURIComponent(go[1])); }
+    Widgets.soon();
+  },
+  /* a widget's link: lens, lens/add, lens/photo/<id>, imagine/new, imagine/pic/<id>, folio/open, folio/doc/<id>, groove/start, groove/song/<id> */
+  link(path) {
+    const [ws, what, id] = String(path).replace(/^\/+/, '').split('/');
+    for (const e of Nav.stack.slice().reverse()) e.fn();       // close whatever was open; an unsaved Lens edit still asks first
+    if (!this.spaces.some(w => w.id === ws)) return;
+    this.show(ws);
+    // the phone only lets a page open the file picker after a tap on the page itself, so these ask for one tap
+    const pick = (title, label, run) => { const s = UI.sheet({ title, body: h('button', { class: 'btn primary wide', onclick: () => { s.close(); run(); } }, icon('plus'), label) }); };
+    if (ws === 'lens' && what === 'add') pick(t('Add photos'), t('Choose photos'), () => Lens.add());
+    else if (ws === 'lens' && what === 'photo') { const i = Lens.photos.findIndex(p => p.id === id); if (i >= 0) Lens.view(Lens.photos, i); }
+    else if (ws === 'imagine' && what === 'new') Imagine.create();
+    else if (ws === 'imagine' && what === 'pic') { const p = Imagine.pics.find(x => x.id === id); if (p) Imagine.open(p); }
+    else if (ws === 'folio' && what === 'open') pick(t('Open PDF'), t('Choose a PDF'), () => Folio.add());
+    else if (ws === 'folio' && what === 'doc') { const d = Folio.docs.find(x => x.id === id); if (d) Folio.open(d); }
+    else if (ws === 'groove' && what === 'start') Groove.make(null);
+    else if (ws === 'groove' && what === 'song') { const r = Groove.songs.find(x => x.id === id); if (r) Groove.open(r); }
   },
   /* the phone's status and navigation bars take the page's colour, with icons that stay readable */
   bars() {

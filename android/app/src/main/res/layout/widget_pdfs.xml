@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Recent PDFs: the last three documents in Folio -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/widget_bg" android:padding="12dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+        <LinearLayout android:id="@+id/head" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"
+            android:gravity="center_vertical" android:layout_marginBottom="6dp">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ws_folio" android:importantForAccessibility="no" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="@string/w_pdfs"
+                android:textColor="#F4F1EA" android:textSize="13sp" android:fontFamily="@font/nunito_extrabold" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/row0" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:orientation="horizontal" android:gravity="center_vertical" android:background="@drawable/widget_press" android:paddingStart="4dp" android:paddingEnd="4dp">
+            <ImageView android:id="@+id/thumb0" android:layout_width="30dp" android:layout_height="40dp" android:scaleType="fitXY" android:importantForAccessibility="no" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                <TextView android:id="@+id/name0" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#F4F1EA"
+                    android:textSize="14sp" android:fontFamily="@font/nunito_extrabold" android:maxLines="1" android:ellipsize="end" />
+                <TextView android:id="@+id/meta0" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#9D9BA0"
+                    android:textSize="12sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/row1" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:orientation="horizontal" android:gravity="center_vertical" android:background="@drawable/widget_press" android:paddingStart="4dp" android:paddingEnd="4dp">
+            <ImageView android:id="@+id/thumb1" android:layout_width="30dp" android:layout_height="40dp" android:scaleType="fitXY" android:importantForAccessibility="no" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                <TextView android:id="@+id/name1" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#F4F1EA"
+                    android:textSize="14sp" android:fontFamily="@font/nunito_extrabold" android:maxLines="1" android:ellipsize="end" />
+                <TextView android:id="@+id/meta1" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#9D9BA0"
+                    android:textSize="12sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/row2" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
+            android:orientation="horizontal" android:gravity="center_vertical" android:background="@drawable/widget_press" android:paddingStart="4dp" android:paddingEnd="4dp">
+            <ImageView android:id="@+id/thumb2" android:layout_width="30dp" android:layout_height="40dp" android:scaleType="fitXY" android:importantForAccessibility="no" />
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="12dp" android:orientation="vertical">
+                <TextView android:id="@+id/name2" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#F4F1EA"
+                    android:textSize="14sp" android:fontFamily="@font/nunito_extrabold" android:maxLines="1" android:ellipsize="end" />
+                <TextView android:id="@+id/meta2" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#9D9BA0"
+                    android:textSize="12sp" android:fontFamily="@font/nunito_semibold" android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView android:id="@+id/empty" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:gravity="center"
+            android:text="@string/empty_pdfs" android:textColor="#9D9BA0" android:textSize="13sp" android:fontFamily="@font/nunito_semibold" android:visibility="gone" />
+    </LinearLayout>
+</FrameLayout>

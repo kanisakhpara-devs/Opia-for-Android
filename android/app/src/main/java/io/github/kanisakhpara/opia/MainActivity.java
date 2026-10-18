@@ -106,7 +106,27 @@ public class MainActivity extends Activity {
             }
         });
         web.addJavascriptInterface(new Bridge(), "OpiaAndroid");
-        if (state != null) web.restoreState(state); else web.loadUrl(START);
+        String link = linkOf(getIntent());
+        if (link != null) web.loadUrl(START + "#link=" + Uri.encode(link));
+        else if (state != null) web.restoreState(state);
+        else web.loadUrl(START);
+    }
+
+    /* a widget was tapped while Opia was already open: go straight there */
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        String link = linkOf(intent);
+        if (link != null) web.evaluateJavascript("typeof App !== 'undefined' && App.link(" + org.json.JSONObject.quote(link) + ")", null);
+    }
+
+    /** opia://lens/photo/123 -> "lens/photo/123" */
+    private static String linkOf(Intent i) {
+        Uri u = i == null ? null : i.getData();
+        if (u == null || !"opia".equals(u.getScheme())) return null;
+        String path = u.getPath() == null ? "" : u.getPath();
+        return (u.getHost() == null ? "" : u.getHost()) + path;
     }
 
     @Override
@@ -347,6 +367,36 @@ public class MainActivity extends Activity {
             send.putExtra(Intent.EXTRA_STREAM, uri);
             send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             runOnUiThread(() -> startActivity(Intent.createChooser(send, null)));
+        }
+
+        /* the home-screen widgets can't read the app's storage, so the page hands them pictures and a summary */
+        @JavascriptInterface
+        public boolean widgetSave(String id, String name) {
+            outgoing.remove(id);
+            if (!name.matches("[A-Za-z0-9._-]+")) return false;
+            return new File(outbox(), id).renameTo(new File(Widgets.dir(MainActivity.this), name));
+        }
+
+        @JavascriptInterface
+        public String widgetFiles() {
+            org.json.JSONArray a = new org.json.JSONArray();
+            String[] names = Widgets.dir(MainActivity.this).list();
+            if (names != null) for (String n : names) a.put(n);
+            return a.toString();
+        }
+
+        @JavascriptInterface
+        public boolean widgetData(String json) {
+            File d = Widgets.dir(MainActivity.this);
+            try (OutputStream o = new FileOutputStream(new File(d, "data.json"))) {
+                o.write(json.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                return false;
+            }
+            String[] names = d.list();   // pictures no longer mentioned go
+            if (names != null) for (String n : names) if (!n.equals("data.json") && !json.contains("\"" + n + "\"")) new File(d, n).delete();
+            Widgets.refreshAll(MainActivity.this);
+            return true;
         }
 
         @JavascriptInterface
