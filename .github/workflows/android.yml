@@ -1,0 +1,73 @@
+# Builds Opia for Android and publishes each build as a release (v0.2.<run>), so the newest APK is always at
+# https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk
+name: Android
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      # optional: a private signing key from the repository's secrets (see README.md)
+      - name: Signing key
+        env:
+          KEY: ${{ secrets.OPIA_KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.OPIA_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.OPIA_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.OPIA_KEY_PASSWORD }}
+        if: ${{ env.KEY != '' }}
+        run: |
+          echo "$KEY" | base64 -d > "$RUNNER_TEMP/opia.jks"
+          {
+            echo "OPIA_KEYSTORE=$RUNNER_TEMP/opia.jks"
+            echo "OPIA_KEYSTORE_PASSWORD=$STORE_PASSWORD"
+            echo "OPIA_KEY_ALIAS=$KEY_ALIAS"
+            echo "OPIA_KEY_PASSWORD=$KEY_PASSWORD"
+          } >> "$GITHUB_ENV"
+
+      - name: Build the APK
+        working-directory: android
+        env:
+          OPIA_VERSION_NAME: 0.2.${{ github.run_number }}
+        run: |
+          export OPIA_VERSION_CODE=$((100 + GITHUB_RUN_NUMBER))   # above the builds made in the Opia for Windows repository, so this installs over them
+          chmod +x gradlew
+          ./gradlew assembleRelease --no-daemon --stacktrace
+          cp app/build/outputs/apk/release/app-release.apk "$RUNNER_TEMP/Opia.apk"
+          ls -la "$RUNNER_TEMP/Opia.apk"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Opia-android-0.2.${{ github.run_number }}
+          path: ${{ runner.temp }}/Opia.apk
+
+      - name: Publish the release
+        if: github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: 0.2.${{ github.run_number }}
+        run: |
+          gh release create "v$VERSION" "$RUNNER_TEMP/Opia.apk" \
+            --target "$GITHUB_SHA" --latest \
+            --title "Opia for Android $VERSION" \
+            --notes "Built from ${GITHUB_SHA::7}. Open **Opia.apk** on your phone to install or update (Android 10 or newer). What changed is in [CHANGELOG.md](https://github.com/${GITHUB_REPOSITORY}/blob/main/CHANGELOG.md)."

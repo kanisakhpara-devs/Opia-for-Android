@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opia for Android: in your pocket</title>
+<meta name="description" content="Opia for Android: Lens for photos, Imagine for pictures, Folio for PDFs and Groove for music, made for touch. Everything stays on your phone; the app has no internet permission.">
+<meta property="og:title" content="Opia for Android">
+<meta property="og:description" content="Photos, pictures, PDFs and songs on your phone. No account, no cloud, no internet permission.">
+<meta property="og:image" content="shots/lens-light.png">
+<meta name="theme-color" content="#efe8da">
+<link rel="icon" href="assets/opia-icon.svg">
+<link rel="preload" href="assets/Caveat.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="site.css">
+<script>/* hide what animates in only when the script can show it again; keep the visitor's theme from the first paint */
+document.documentElement.classList.add('js'); try { if (localStorage.getItem('opia-site-theme') === 'dark') document.documentElement.dataset.theme = 'dark'; } catch (e) {}</script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Opia for Android, back to the top"><img src="assets/opia-icon.svg" alt="" width="28" height="28"><span>opia</span></a>
+  <nav class="links" aria-label="Sections">
+    <a href="#workspaces" data-i18n="nav.ws">Workspaces</a>
+    <a href="#install" data-i18n="nav.install">Install</a>
+    <a href="#private" data-i18n="nav.private">Privacy</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+  </nav>
+  <div class="controls">
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <button type="button" class="theme" aria-label="Switch to the dark theme"><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span></button>
+    <a class="pill" href="#download" data-i18n="nav.download">Download</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- the desk, with phones on it -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="kicker plain" data-i18n="hero.k">Opia for Android</p>
+      <h1 data-i18n="hero.title">Opia, in your pocket<span class="dot" aria-hidden="true"></span></h1>
+      <p class="sub" data-i18n="hero.sub">Lens, Imagine, Folio and Groove, made for your thumb. Photos, pictures, PDFs and songs, all kept on your phone. No account, no cloud, not even an internet permission.</p>
+      <div class="cta">
+        <a class="pill ink big" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="hero.download">Download the APK</a>
+        <a class="pill big" href="https://github.com/kanisakhpara-devs/Opia-for-Android" data-i18n="hero.github">View on GitHub</a>
+      </div>
+      <p class="note hand write" data-i18n="hero.note">↓ four workspaces, one phone</p>
+    </div>
+    <div class="desk phones" aria-hidden="true">
+      <figure class="phone drop" style="--r:-6deg; --d:0"><span class="tape"></span><img src="shots/lens-light.png" alt="" width="780" height="1688"><figcaption class="hand" data-i18n="hero.c1">Lens · the whole trip</figcaption></figure>
+      <figure class="phone drop" style="--r:3deg; --d:1"><span class="tape" style="--t:5deg"></span><img src="shots/imagine-light.png" alt="" width="780" height="1688"><figcaption class="hand" data-i18n="hero.c2">Imagine · title card</figcaption></figure>
+      <figure class="phone drop" style="--r:-2deg; --d:2"><span class="tape" style="--t:-7deg"></span><img src="shots/folio-light.png" alt="" width="780" height="1688"><figcaption class="hand" data-i18n="hero.c3">Folio · signed on the bus</figcaption></figure>
+      <figure class="phone drop" style="--r:7deg; --d:3"><span class="tape"></span><img src="shots/groove-dark.png" alt="" width="780" height="1688"><figcaption class="hand" data-i18n="hero.c4">Groove · lo-fi, 78 bpm</figcaption></figure>
+      <img class="sticker drop" src="assets/opia-music-icon.svg" alt="" style="--r:-12deg; --d:4">
+      <img class="sticker drop" src="assets/opia-pdf-icon.svg" alt="" style="--r:14deg; --d:5">
+    </div>
+  </section>
+
+  <!-- contents -->
+  <nav class="index four" id="workspaces" aria-label="Workspaces">
+    <a href="#lens" style="--c:#3d5afe"><small>01</small>Lens<span data-i18n="ix.1">photos</span></a>
+    <a href="#imagine" style="--c:#8a4fe0"><small>02</small>Imagine<span data-i18n="ix.2">pictures</span></a>
+    <a href="#folio" style="--c:#0f75b0"><small>03</small>Folio<span data-i18n="ix.3">PDFs</span></a>
+    <a href="#groove" style="--c:#c4381d"><small>04</small>Groove<span data-i18n="ix.4">music</span></a>
+  </nav>
+
+  <section class="spread phones-spread" id="lens" aria-labelledby="h-lens">
+    <div class="num" aria-hidden="true">01</div>
+    <div class="words">
+      <p class="kicker"><img src="assets/opia-icon.svg" alt="" width="26" height="26"><span data-i18n="lens.k">Lens · photos</span></p>
+      <h2 id="h-lens" data-i18n="lens.h">Every photo, rated and developed.</h2>
+      <p data-i18n="lens.p">Bring photos in with the phone's own picker. Rate them, keep favourites, then develop: light, colour, filters, crop and straighten. Hold the photo to see the original; it is never changed.</p>
+      <ul>
+        <li data-i18n="lens.1">14 adjustments and 10 filters</li>
+        <li data-i18n="lens.2">Crop to fixed shapes, rotate, flip, straighten</li>
+        <li data-i18n="lens.3">Save a copy straight to your gallery</li>
+      </ul>
+      <p class="margin hand write" data-i18n="lens.m">← warmth +34, vibrance +28</p>
+    </div>
+    <figure class="phone settle" style="--r:1.8deg"><span class="tape"></span><img src="shots/lens-edit.png" alt="Lens on a phone, developing a photo of golden hills with the vibrance slider raised" width="780" height="1688" loading="lazy"><figcaption class="hand" data-i18n="lens.c">golden hills, warmed up</figcaption></figure>
+  </section>
+
+  <section class="spread phones-spread flip" id="imagine" aria-labelledby="h-imagine">
+    <div class="num" aria-hidden="true">02</div>
+    <figure class="phone settle" style="--r:-1.6deg"><span class="tape" style="--t:5deg"></span><img src="shots/imagine-light.png" alt="Imagine on a phone: a photo with the words ICELAND, summer 2026 on a dark label and a sparkle sticker" width="780" height="1688" loading="lazy"><figcaption class="hand" data-i18n="imagine.c">three layers, still editable</figcaption></figure>
+    <div class="words">
+      <p class="kicker"><img src="assets/opia-image-icon.svg" alt="" width="26" height="26"><span data-i18n="imagine.k">Imagine · pictures</span></p>
+      <h2 id="h-imagine" data-i18n="imagine.h">Layers you move with a finger.</h2>
+      <p data-i18n="imagine.p">Start from a photo or a blank page, then add text, stickers and drawings. Drag to move, pinch to resize and turn. Every layer stays editable.</p>
+      <ul>
+        <li data-i18n="imagine.1">Five fonts, colours and a label behind text</li>
+        <li data-i18n="imagine.2">Photos from Lens come in with their edits</li>
+        <li data-i18n="imagine.3">Export as PNG or JPEG</li>
+      </ul>
+      <p class="margin hand write" data-i18n="imagine.m">← pinch, turn, done</p>
+    </div>
+  </section>
+
+  <section class="spread phones-spread" id="folio" aria-labelledby="h-folio">
+    <div class="num" aria-hidden="true">03</div>
+    <div class="words">
+      <p class="kicker"><img src="assets/opia-pdf-icon.svg" alt="" width="26" height="26"><span data-i18n="folio.k">Folio · PDFs</span></p>
+      <h2 id="h-folio" data-i18n="folio.h">Fill it in and sign it, on the bus.</h2>
+      <p data-i18n="folio.p">Open a PDF, fill in its form, sign with your finger, highlight and add text. Turn, reorder or delete pages, then save it or share it straight from the app.</p>
+      <ul>
+        <li data-i18n="folio.1">Real form fields: text, ticks and lists</li>
+        <li data-i18n="folio.2">Your signature, kept for next time</li>
+        <li data-i18n="folio.3">Back to the original at any time</li>
+      </ul>
+      <p class="margin hand write" data-i18n="folio.m">← signed!</p>
+    </div>
+    <figure class="phone settle" style="--r:1.4deg"><span class="tape" style="--t:7deg"></span><img src="shots/folio-light.png" alt="Folio on a phone: a form filled in with a name, a tick and a seat, a highlighted title and a signature" width="780" height="1688" loading="lazy"><figcaption class="hand" data-i18n="folio.c">trip form, filled in</figcaption></figure>
+  </section>
+
+  <section class="spread phones-spread flip" id="groove" aria-labelledby="h-groove">
+    <div class="num" aria-hidden="true">04</div>
+    <figure class="phone settle" style="--r:-1.8deg"><span class="tape"></span><img src="shots/groove-roll.png" alt="Groove on a phone: the melody of a song on a grid of notes" width="780" height="1688" loading="lazy"><figcaption class="hand" data-i18n="groove.c">the melody, note by note</figcaption></figure>
+    <div class="words">
+      <p class="kicker"><img src="assets/opia-music-icon.svg" alt="" width="26" height="26"><span data-i18n="groove.k">Groove · music</span></p>
+      <h2 id="h-groove" data-i18n="groove.h">A song in one tap. Then make it yours.</h2>
+      <p data-i18n="groove.p">Pick a style and Opia writes drums, bass, chords and melody that fit together. Change any part on a grid of steps, swap instruments, and sing over the top.</p>
+      <ul>
+        <li data-i18n="groove.1">The same music engine and real instruments as on Windows</li>
+        <li data-i18n="groove.2">Six styles, every key and scale</li>
+        <li data-i18n="groove.3">Record your voice, save as WAV</li>
+      </ul>
+      <p class="margin hand write" data-i18n="groove.m">← it always stays in key</p>
+    </div>
+  </section>
+
+  <!-- also in the app -->
+  <section class="sheet" aria-labelledby="h-box">
+    <p class="kicker plain" data-i18n="box.k">Also in the app</p>
+    <h2 id="h-box" data-i18n="box.h">Small things that make it nice to use.</h2>
+    <ul class="checklist">
+      <li class="tick-in"><b data-i18n="b1.t">Light and dark.</b> <span data-i18n="b1.p">It follows your phone, or you choose.</span></li>
+      <li class="tick-in"><b data-i18n="b2.t">English and Spanish.</b> <span data-i18n="b2.p">Switch any time in Settings.</span></li>
+      <li class="tick-in"><b data-i18n="b3.t">A back button that makes sense.</b> <span data-i18n="b3.p">It closes the top sheet or screen first.</span></li>
+      <li class="tick-in"><b data-i18n="b4.t">Names for TalkBack.</b> <span data-i18n="b4.p">Every button and slider has a spoken name.</span></li>
+      <li class="tick-in"><b data-i18n="b5.t">Saves where you look.</b> <span data-i18n="b5.p">Pictures, Music and Download, in an Opia folder.</span></li>
+      <li class="tick-in"><b data-i18n="b6.t">Small.</b> <span data-i18n="b6.p">About 6 MB, with real instrument samples inside.</span></li>
+    </ul>
+  </section>
+
+  <!-- install: three notes -->
+  <section class="install" id="install" aria-labelledby="h-install">
+    <p class="kicker plain" data-i18n="i.k">Install</p>
+    <h2 id="h-install" data-i18n="i.h">Three taps, no store.</h2>
+    <div class="steps">
+      <div class="step settle" style="--r:-1.5deg"><span class="tape"></span><b class="n" aria-hidden="true">1</b><h3 data-i18n="i1.h">Download</h3><p data-i18n="i1.p">On your phone, tap Download. It's one file, Opia.apk, about 6 MB.</p></div>
+      <div class="step settle" style="--r:1deg"><span class="tape" style="--t:6deg"></span><b class="n" aria-hidden="true">2</b><h3 data-i18n="i2.h">Open it</h3><p data-i18n="i2.p">Open the downloaded file. Android asks once to let your browser install apps; allow it.</p></div>
+      <div class="step settle" style="--r:-.6deg"><span class="tape" style="--t:-7deg"></span><b class="n" aria-hidden="true">3</b><h3 data-i18n="i3.h">That's it</h3><p data-i18n="i3.p">Opia is on your home screen. New versions install over the old one, and your work stays.</p></div>
+      <div class="step qr settle" style="--r:1.6deg"><img src="assets/qr.svg" alt="QR code for the Opia.apk download" width="41" height="41"><p data-i18n="i4.p">On a computer? Scan this with your phone's camera.</p></div>
+    </div>
+    <p class="warn" data-i18n="i.warn">Opia isn't on the Play Store, so Play Protect may say it doesn't recognise the app. That's what it says about any app installed from outside the store. Only install Opia from this page or its GitHub Releases. It needs Android 10 or newer.</p>
+  </section>
+
+  <!-- privacy: a rubber stamp -->
+  <section class="private" id="private" aria-labelledby="h-private">
+    <div class="stamp" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="ring" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/></defs><circle cx="100" cy="100" r="92" class="s1"/><circle cx="100" cy="100" r="58" class="s2"/><text><textPath href="#ring" data-i18n="st.ring">STAYS ON YOUR PHONE · STAYS ON YOUR PHONE · </textPath></text><circle cx="100" cy="100" r="24" class="s3"/><circle cx="108" cy="92" r="8" class="s4"/></svg></div>
+    <div class="words">
+      <p class="kicker plain" data-i18n="p.k">Private by design</p>
+      <h2 id="h-private" data-i18n="p.h">No internet permission. At all.</h2>
+      <p data-i18n="p.p">Opia for Android doesn't ask to go online, so it can't. Your photos, pictures, PDFs and songs stay in the app's own storage on your phone until you save or share a copy. The only thing it asks for is the microphone, and only when you record in Groove.</p>
+      <p class="margin hand write" data-i18n="p.m">no account · no ads · no tracking</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq" aria-labelledby="h-faq">
+    <p class="kicker plain">FAQ</p>
+    <h2 id="h-faq" data-i18n="q.h">Questions, answered honestly.</h2>
+    <div class="qs">
+      <details><summary data-i18n="q1">Is it on the Play Store?</summary><p data-i18n="a1">Not yet. You install the APK from this page. Play Protect may warn that it doesn't recognise the app; it says that about any app from outside the store.</p></details>
+      <details><summary data-i18n="q2">Which phones does it run on?</summary><p data-i18n="a2">Android 10 or newer. It's new: it has been built and tested at phone size in a browser, and real phones are the next test. If something looks wrong, open an issue on GitHub with a screenshot.</p></details>
+      <details><summary data-i18n="q3">Is it the same as Opia for Windows?</summary><p data-i18n="a3">It shares the look, the names and Groove's music engine, but it's its own app, made for touch. Lens, Imagine and Folio do less than on Windows, and there's no Motion (video) yet.</p></details>
+      <details><summary data-i18n="q4">Does it sync with my computer?</summary><p data-i18n="a4">No. Nothing leaves the phone unless you save or share a copy. Send files to your computer the way you usually do.</p></details>
+      <details><summary data-i18n="q5">Will updating delete my work?</summary><p data-i18n="a5">No. New versions install over the old one and keep everything. Uninstalling the app, or clearing its storage, does delete it, so save copies of anything you want to keep.</p></details>
+      <details><summary data-i18n="q6">Is it free?</summary><p data-i18n="a6">Yes. There is nothing to pay and no account to make. The project hasn't chosen an open-source licence yet, so for now the code is shared to look at and build, not to reuse.</p></details>
+      <details><summary data-i18n="q7">What can't it do?</summary><p data-i18n="a7">HEIC and RAW photos mostly won't open, text added to PDFs only has Western European letters, and voice recordings line up closely but not perfectly. The README lists every limit.</p></details>
+    </div>
+  </section>
+
+  <!-- download: a ticket -->
+  <section class="download" id="download" aria-labelledby="h-dl">
+    <div class="ticket settle" style="--r:.6deg">
+      <div class="stub" aria-hidden="true"><img src="assets/opia-icon.svg" alt="" width="70" height="70"><span>ADMIT ONE</span></div>
+      <div class="main">
+        <h2 id="h-dl" data-i18n="d.h">Get Opia for Android</h2>
+        <p data-i18n="d.p">Free, for Android 10 and newer.</p>
+        <a class="pill ink big" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="d.btn">Download Opia.apk</a>
+        <p class="small" data-i18n="d.note">Every version is on the <a href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases">Releases page</a>. On a computer instead? <a href="https://kanisakhpara-devs.github.io/Opia-for-Windows/">Opia for Windows</a> has all five workspaces, Motion included.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="colophon">
+    <div><a class="brand" href="#top"><img src="assets/opia-icon.svg" alt="" width="24" height="24"><span>opia</span></a><p data-i18n="ft.p">Opia for Android. Make things. Keep them yours.</p></div>
+    <div class="flinks"><a href="https://github.com/kanisakhpara-devs/Opia-for-Android">GitHub</a><a href="https://github.com/kanisakhpara-devs/Opia-for-Android#readme">README</a><a href="https://github.com/kanisakhpara-devs/Opia-for-Android/blob/main/CHANGELOG.md" data-i18n="ft.changelog">Changelog</a><a href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases" data-i18n="ft.releases">Releases</a><a href="https://kanisakhpara-devs.github.io/Opia-for-Windows/">Opia for Windows</a></div>
+    <div class="credits">
+      <p data-i18n="ft.c1">PDFs are shown with pdf.js (Apache 2.0) and changed with pdf-lib (MIT).</p>
+      <p data-i18n="ft.c2">Instrument samples: Fluid R3 GM SoundFont, CC BY 3.0. Typefaces: Nunito and Caveat, SIL Open Font License.</p>
+      <p data-i18n="ft.c3">The pictures in the screenshots were generated for this page; they aren't real photos.</p>
+    </div>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
