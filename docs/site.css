@@ -251,3 +251,46 @@ pre { margin: 0; background: var(--code); border: 1.5px dashed var(--rule); bord
 .desk .phone:nth-child(3) figcaption { translate: -30% 0; }
 .desk .sticker:nth-of-type(1) { left: -3%; top: -5%; bottom: auto; }
 .desk .sticker:nth-of-type(2) { right: -2%; top: auto; bottom: -9%; }
+
+/* ---- after Download: what the phone shows next */
+.guide { width: min(720px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); padding: 34px clamp(18px, 4vw, 40px) 28px; border: 0; border-radius: 18px; background: var(--card); color: var(--ink); box-shadow: 0 30px 80px rgba(0,0,0,.4); overflow-y: auto; }
+.guide::backdrop { background: rgba(20, 16, 8, .55); backdrop-filter: blur(3px); }
+.guide[open] { animation: g-in .35s cubic-bezier(.2,1.2,.35,1); }
+@keyframes g-in { from { opacity: 0; translate: 0 30px; } }
+.guide h2 { font-size: clamp(30px, 5vw, 44px); margin-bottom: 10px; }
+.g-sub { color: var(--soft); margin: 0 0 22px; }
+.g-close-form { position: absolute; top: 12px; right: 12px; margin: 0; }
+.g-close { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--ink); background: none; color: var(--ink); font-size: 18px; cursor: pointer; }
+.g-android, .g-desktop, .g-iphone { display: none; }
+.guide[data-for=android] .g-android, .guide[data-for=desktop] .g-desktop, .guide[data-for=iphone] .g-iphone { display: block; }
+.g-steps { list-style: none; counter-reset: g; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.g-steps li { counter-increment: g; display: grid; grid-template-columns: 44px minmax(0, 1fr) 230px; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--rule); }
+.g-steps li::before { content: counter(g); font: 700 48px/1 Caveat, cursive; color: var(--red); align-self: start; }
+.g-text > b { display: block; font-size: 19px; margin-bottom: 4px; }
+.g-text span { color: var(--soft); font-size: 16px; }
+.g-text span b { color: var(--ink); }
+/* drawings of Android's screens, in Android's own neutral colours so they read as "the phone", not as this page */
+.mock { font: 14px/1.35 Roboto, 'Segoe UI', system-ui, sans-serif; color: #1f1f1f; background: #eef0f4; border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.m-bar { display: flex; align-items: center; gap: 8px; background: #2d2f33; color: #fff; border-radius: 10px; padding: 10px 12px; }
+.m-file { font-weight: 600; } .m-bar small { opacity: .7; margin-right: auto; }
+.m-btn { color: #0b57d0; font-weight: 700; }
+.m-bar .m-btn { color: #a8c7fa; }
+.m-dlg { background: #fff; border-radius: 14px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.m-dlg p { margin: 0 0 8px; font-size: 13px; }
+.m-app { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px !important; } .m-app img { border-radius: 7px; }
+.m-acts { display: flex; justify-content: flex-end; gap: 16px; font-weight: 600; color: #0b57d0; font-size: 13px; }
+.m-acts span:first-child { color: #444; }
+.m-row { display: flex; align-items: center; justify-content: space-between; background: #fff; border-radius: 12px; padding: 10px 12px; font-size: 13px; }
+.m-switch { width: 38px; height: 22px; border-radius: 22px; background: #0b57d0; position: relative; flex: none; }
+.m-switch::after { content: ""; position: absolute; right: 3px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; }
+.m-home { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 6px; font-size: 13px; }
+.m-home img { border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,.2); }
+.g-again { margin: 18px 0 0; color: var(--soft); font-size: 15px; }
+.g-again a { color: var(--red); font-weight: 800; }
+.g-qr { width: 230px; height: auto; aspect-ratio: 1; background: #fff; padding: 14px; border-radius: 12px; margin: 6px 0 4px; }
+@media (max-width: 640px) {
+  .g-steps li { grid-template-columns: 34px minmax(0, 1fr); }
+  .g-steps li::before { font-size: 40px; }
+  .mock { grid-column: 2; }
+}
+@media (prefers-reduced-motion: reduce) { .guide[open] { animation: none; } }

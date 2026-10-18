@@ -2,6 +2,26 @@
 
 Every change to Opia for Android is listed here, newest first, with what was tested and what was not. Work done in a cloud session says so: it was tested in headless Chromium at phone size, not on a phone.
 
+## Website: the download explains itself (cloud session, 2026-10-18)
+
+**Fixed** the website's Download buttons giving no sign that anything had happened. On a phone, Chrome only shows a small bar when a download finishes, and nothing said that the downloaded file *is* the installer.
+
+Tapping Download now opens a guide straight away. It says Opia.apk is downloading and that the file is the installer, then shows what the phone asks next. Each step has a drawing of Android's own screen:
+1. Tap **Open** in the download bar, or find the file in Files → Downloads.
+2. Allow the browser to install apps: **Settings**, then **Allow from this source** (first time only).
+3. Tap **Install**. If Play Protect warns, tap **More details**, then **Install anyway**.
+4. Open Opia from the home screen.
+
+There is a "Download it again" link. On a computer the guide shows the QR code to scan instead of downloading a file that can't be used there, with "download anyway" as a link. On an iPhone it says the app is for Android. It is in English and Spanish and closes with Esc, ✕ or a tap outside.
+
+**Tested** (headless Chromium):
+- **Android phone (simulated):** the download starts and the guide opens.
+- **Computer and iPhone (simulated):** no download, and the right message.
+- **Accessibility:** axe-core finds no violations with the guide open.
+- **The rest of the site:** still no violations, no sideways scrolling and no script errors.
+
+**Not tested:** a real phone. The drawings follow recent Android and Chrome, and the wording on other phones (Samsung, for example) differs slightly.
+
 ## 0.2: Its own repository and website (cloud session, 2026-10-18)
 
 **Moved** the Android app out of the Opia repository (now **Opia for Windows**) into this repository, **Opia for Android**:

@@ -51,6 +51,18 @@ const ES = {
   'ft.c1': 'Los PDF se muestran con pdf.js (Apache 2.0) y se modifican con pdf-lib (MIT).',
   'ft.c2': 'Muestras de instrumentos: SoundFont Fluid R3 GM, CC BY 3.0. Tipografías: Nunito y Caveat, SIL Open Font License.',
   'ft.c3': 'Las imágenes de las capturas se generaron para esta página; no son fotos reales.',
+  'i1.p': 'En tu teléfono, toca Descargar. Es un solo archivo, Opia.apk, de unos 6 MB, y es el instalador. Esta página te muestra qué tocar después.',
+  'g.close': 'Cerrar', 'g.k': 'Instalar Opia', 'g.h': 'Opia.apk se está descargando.', 'g.sub': 'El archivo que acabas de descargar es el instalador. Esto es lo que mostrará tu teléfono, y qué tocar.',
+  'g1.h': 'Abre el archivo', 'g1.p': 'Al terminar, aparece una barra en la parte de abajo de la pantalla. Toca <b>Abrir</b>. ¿No la viste? Abre la app <b>Archivos</b>, ve a <b>Descargas</b> y toca <b>Opia.apk</b>.',
+  'g2.h': 'Deja que tu navegador instale apps', 'g2.p': 'Solo la primera vez. Android dice que no puede instalar apps de esta fuente: toca <b>Ajustes</b>, activa <b>Permitir de esta fuente</b> y vuelve atrás.',
+  'g2.m': 'Por tu seguridad, tu teléfono no puede instalar aplicaciones desconocidas de esta fuente.', 'g2.t': 'Permitir de esta fuente',
+  'g3.h': 'Toca Instalar', 'g3.p': 'Si Play Protect avisa de que no reconoce la app, toca <b>Más detalles</b> y luego <b>Instalar de todos modos</b>. Lo dice de todas las apps de fuera de Play Store.',
+  'g3.m': '¿Quieres instalar esta aplicación?', 'g4.h': 'Abre Opia', 'g4.p': 'Está en tu pantalla de inicio y en la lista de apps. La próxima vez, la versión nueva se instala encima y conserva tu trabajo.',
+  'g.again': '¿No se descargó nada?', 'g.retry': 'Descárgalo otra vez',
+  'm.open': 'Abrir', 'm.cancel': 'Cancelar', 'm.settings': 'Ajustes', 'm.install': 'Instalar',
+  'gd.h': 'Opia va en tu teléfono.', 'gd.p': 'Apunta la cámara del teléfono a este código para descargarlo allí. Luego sigue los pasos que muestre tu teléfono; esta página te guía si la abres en el teléfono.',
+  'gd.anyway': 'Descargar el archivo en este ordenador de todos modos',
+  'gi.h': 'Esta es para teléfonos Android.', 'gi.p': 'Opia para Android no se puede instalar en un iPhone ni un iPad. En un ordenador está <a href="https://kanisakhpara-devs.github.io/Opia-for-Windows/">Opia para Windows</a>.',
 };
 const EN = {};
 
@@ -58,6 +70,10 @@ function setLang(lang) {
   for (const el of $$('[data-i18n]')) {
     const k = el.dataset.i18n; if (!(k in EN)) EN[k] = el.innerHTML;
     el.innerHTML = lang === 'es' && ES[k] ? ES[k] : EN[k];
+  }
+  for (const el of $$('[data-i18n-label]')) {
+    const k = el.dataset.i18nLabel; if (!(('label:' + k) in EN)) EN['label:' + k] = el.getAttribute('aria-label');
+    el.setAttribute('aria-label', lang === 'es' && ES[k] ? ES[k] : EN['label:' + k]);
   }
   html.lang = lang;
   $$('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
@@ -110,3 +126,13 @@ function onScroll() {
 }
 addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
 onScroll();
+
+/* ---- Download: the file is the installer, so say so straight away and show what the phone will ask next.
+   On a computer or an iPhone the file is no use, so show the code to scan (or say it's for Android) instead. */
+const guide = $('#guide');
+const device = () => /Android/i.test(navigator.userAgent) ? 'android' : /iPhone|iPad|iPod/i.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1) ? 'iphone' : 'desktop';
+$$('a.apk').forEach(a => a.addEventListener('click', e => {
+  const d = device(); if (d !== 'android') e.preventDefault();     // on Android the download goes ahead underneath
+  guide.dataset.for = d; guide.showModal(); guide.scrollTop = 0;
+}));
+guide.addEventListener('click', e => { const r = guide.getBoundingClientRect(); if (e.target === guide && (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom)) guide.close(); });    // a tap outside the card closes it

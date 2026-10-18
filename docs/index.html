@@ -43,7 +43,7 @@ document.documentElement.classList.add('js'); try { if (localStorage.getItem('op
       <h1 data-i18n="hero.title">Opia, in your pocket<span class="dot" aria-hidden="true"></span></h1>
       <p class="sub" data-i18n="hero.sub">Lens, Imagine, Folio and Groove, made for your thumb. Photos, pictures, PDFs and songs, all kept on your phone. No account, no cloud, not even an internet permission.</p>
       <div class="cta">
-        <a class="pill ink big" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="hero.download">Download the APK</a>
+        <a class="pill ink big apk" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="hero.download">Download the APK</a>
         <a class="pill big" href="https://github.com/kanisakhpara-devs/Opia-for-Android" data-i18n="hero.github">View on GitHub</a>
       </div>
       <p class="note hand write" data-i18n="hero.note">↓ four workspaces, one phone</p>
@@ -149,7 +149,7 @@ document.documentElement.classList.add('js'); try { if (localStorage.getItem('op
     <p class="kicker plain" data-i18n="i.k">Install</p>
     <h2 id="h-install" data-i18n="i.h">Three taps, no store.</h2>
     <div class="steps">
-      <div class="step settle" style="--r:-1.5deg"><span class="tape"></span><b class="n" aria-hidden="true">1</b><h3 data-i18n="i1.h">Download</h3><p data-i18n="i1.p">On your phone, tap Download. It's one file, Opia.apk, about 6 MB.</p></div>
+      <div class="step settle" style="--r:-1.5deg"><span class="tape"></span><b class="n" aria-hidden="true">1</b><h3 data-i18n="i1.h">Download</h3><p data-i18n="i1.p">On your phone, tap Download. It's one file, Opia.apk, about 6 MB, and it is the installer. This page then shows you what to tap.</p></div>
       <div class="step settle" style="--r:1deg"><span class="tape" style="--t:6deg"></span><b class="n" aria-hidden="true">2</b><h3 data-i18n="i2.h">Open it</h3><p data-i18n="i2.p">Open the downloaded file. Android asks once to let your browser install apps; allow it.</p></div>
       <div class="step settle" style="--r:-.6deg"><span class="tape" style="--t:-7deg"></span><b class="n" aria-hidden="true">3</b><h3 data-i18n="i3.h">That's it</h3><p data-i18n="i3.p">Opia is on your home screen. New versions install over the old one, and your work stays.</p></div>
       <div class="step qr settle" style="--r:1.6deg"><img src="assets/qr.svg" alt="QR code for the Opia.apk download" width="41" height="41"><p data-i18n="i4.p">On a computer? Scan this with your phone's camera.</p></div>
@@ -190,7 +190,7 @@ document.documentElement.classList.add('js'); try { if (localStorage.getItem('op
       <div class="main">
         <h2 id="h-dl" data-i18n="d.h">Get Opia for Android</h2>
         <p data-i18n="d.p">Free, for Android 10 and newer.</p>
-        <a class="pill ink big" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="d.btn">Download Opia.apk</a>
+        <a class="pill ink big apk" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="d.btn">Download Opia.apk</a>
         <p class="small" data-i18n="d.note">Every version is on the <a href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases">Releases page</a>. On a computer instead? <a href="https://kanisakhpara-devs.github.io/Opia-for-Windows/">Opia for Windows</a> has all five workspaces, Motion included.</p>
       </div>
     </div>
@@ -208,6 +208,50 @@ document.documentElement.classList.add('js'); try { if (localStorage.getItem('op
     </div>
   </div>
 </footer>
+
+<!-- what to do after tapping Download: Android's own screens, drawn, in the order they appear -->
+<dialog class="guide" id="guide" aria-labelledby="g-title">
+  <form method="dialog" class="g-close-form"><button class="g-close" aria-label="Close" data-i18n-label="g.close">✕</button></form>
+
+  <div class="g-android">
+    <p class="kicker plain" data-i18n="g.k">Installing Opia</p>
+    <h2 id="g-title" data-i18n="g.h">Opia.apk is downloading.</h2>
+    <p class="g-sub" data-i18n="g.sub">The file you just downloaded is the installer. Here's what your phone shows next, and what to tap.</p>
+    <ol class="g-steps">
+      <li>
+        <div class="g-text"><b data-i18n="g1.h">Open the file</b><span data-i18n="g1.p">When it finishes, a bar appears at the bottom of the screen. Tap <b>Open</b>. Missed it? Open the <b>Files</b> app, go to <b>Downloads</b>, and tap <b>Opia.apk</b>.</span></div>
+        <div class="mock" aria-hidden="true"><div class="m-bar"><span class="m-file">Opia.apk</span><small>6.2 MB</small><span class="m-btn" data-i18n="m.open">Open</span></div></div>
+      </li>
+      <li>
+        <div class="g-text"><b data-i18n="g2.h">Allow your browser to install apps</b><span data-i18n="g2.p">Only the first time. Android says it isn't allowed to install apps from this source: tap <b>Settings</b>, turn on <b>Allow from this source</b>, then go back.</span></div>
+        <div class="mock" aria-hidden="true"><div class="m-dlg"><p data-i18n="g2.m">For your security, your phone currently isn't allowed to install unknown apps from this source.</p><div class="m-acts"><span data-i18n="m.cancel">Cancel</span><span class="m-btn" data-i18n="m.settings">Settings</span></div></div><div class="m-row"><span data-i18n="g2.t">Allow from this source</span><i class="m-switch"></i></div></div>
+      </li>
+      <li>
+        <div class="g-text"><b data-i18n="g3.h">Tap Install</b><span data-i18n="g3.p">If Play Protect warns that it doesn't recognise the app, tap <b>More details</b> and then <b>Install anyway</b>. It says this about every app from outside the Play Store.</span></div>
+        <div class="mock" aria-hidden="true"><div class="m-dlg"><p class="m-app"><img src="assets/opia-icon.svg" alt="" width="26" height="26"> Opia</p><p data-i18n="g3.m">Do you want to install this app?</p><div class="m-acts"><span data-i18n="m.cancel">Cancel</span><span class="m-btn" data-i18n="m.install">Install</span></div></div></div>
+      </li>
+      <li>
+        <div class="g-text"><b data-i18n="g4.h">Open Opia</b><span data-i18n="g4.p">It's on your home screen and in your app list. Next time, a new version installs over this one and keeps your work.</span></div>
+        <div class="mock" aria-hidden="true"><div class="m-home"><img src="assets/opia-icon.svg" alt="" width="46" height="46"><span>Opia</span></div></div>
+      </li>
+    </ol>
+    <p class="g-again"><span data-i18n="g.again">Nothing downloaded?</span> <a class="apk-retry" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="g.retry">Download it again</a></p>
+  </div>
+
+  <div class="g-desktop">
+    <p class="kicker plain" data-i18n="g.k">Installing Opia</p>
+    <h2 data-i18n="gd.h">Opia goes on your phone.</h2>
+    <p class="g-sub" data-i18n="gd.p">Point your phone's camera at this code to download it there. Then follow the steps your phone shows; this page walks you through them if you open it on the phone.</p>
+    <img class="g-qr" src="assets/qr.svg" alt="QR code for the Opia.apk download" width="41" height="41">
+    <p class="g-again"><a class="apk-retry" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="gd.anyway">Download the file to this computer anyway</a></p>
+  </div>
+
+  <div class="g-iphone">
+    <p class="kicker plain" data-i18n="g.k">Installing Opia</p>
+    <h2 data-i18n="gi.h">This one is for Android phones.</h2>
+    <p class="g-sub" data-i18n="gi.p">Opia for Android can't be installed on an iPhone or iPad. On a computer, there's <a href="https://kanisakhpara-devs.github.io/Opia-for-Windows/">Opia for Windows</a>.</p>
+  </div>
+</dialog>
 <script src="site.js"></script>
 </body>
 </html>
