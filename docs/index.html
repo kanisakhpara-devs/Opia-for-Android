@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Opia for Android: in your pocket</title>
-<meta name="description" content="Opia for Android: Lens for photos, Imagine for pictures, Folio for PDFs and Groove for music, made for touch. Everything stays on your phone; the app has no internet permission.">
+<meta name="description" content="Opia for Android: Lens for photos, Imagine for pictures, Folio for PDFs and Groove for music, made for touch. Everything stays on your phone; it only goes online to check for updates, and only if you allow it.">
 <meta property="og:title" content="Opia for Android">
-<meta property="og:description" content="Photos, pictures, PDFs and songs on your phone. No account, no cloud, no internet permission.">
+<meta property="og:description" content="Photos, pictures, PDFs and songs on your phone. No account, no cloud, and offline unless you allow update checks.">
 <meta property="og:image" content="shots/lens-light.png">
 <meta name="theme-color" content="#efe8da">
 <link rel="icon" href="assets/opia-icon.svg">
@@ -41,7 +41,7 @@ document.documentElement.classList.add('js'); try { if (localStorage.getItem('op
     <div class="hero-copy">
       <p class="kicker plain" data-i18n="hero.k">Opia for Android</p>
       <h1 data-i18n="hero.title">Opia, in your pocket<span class="dot" aria-hidden="true"></span></h1>
-      <p class="sub" data-i18n="hero.sub">Lens, Imagine, Folio and Groove, made for your thumb. Photos, pictures, PDFs and songs, all kept on your phone. No account, no cloud, not even an internet permission.</p>
+      <p class="sub" data-i18n="hero.sub">Lens, Imagine, Folio and Groove, made for your thumb. Photos, pictures, PDFs and songs, all kept on your phone. No account and no cloud. It only goes online to check for updates, and only if you say so.</p>
       <div class="cta">
         <a class="pill ink big apk" href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk" data-i18n="hero.download">Download the APK</a>
         <a class="pill big" href="https://github.com/kanisakhpara-devs/Opia-for-Android" data-i18n="hero.github">View on GitHub</a>
@@ -162,8 +162,8 @@ document.documentElement.classList.add('js'); try { if (localStorage.getItem('op
     <div class="stamp" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="ring" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0"/></defs><circle cx="100" cy="100" r="92" class="s1"/><circle cx="100" cy="100" r="58" class="s2"/><text><textPath href="#ring" data-i18n="st.ring">STAYS ON YOUR PHONE · STAYS ON YOUR PHONE · </textPath></text><circle cx="100" cy="100" r="24" class="s3"/><circle cx="108" cy="92" r="8" class="s4"/></svg></div>
     <div class="words">
       <p class="kicker plain" data-i18n="p.k">Private by design</p>
-      <h2 id="h-private" data-i18n="p.h">No internet permission. At all.</h2>
-      <p data-i18n="p.p">Opia for Android doesn't ask to go online, so it can't. Your photos, pictures, PDFs and songs stay in the app's own storage on your phone until you save or share a copy. The only thing it asks for is the microphone, and only when you record in Groove.</p>
+      <h2 id="h-private" data-i18n="p.h">Offline, unless you say so.</h2>
+      <p data-i18n="p.p">Your photos, pictures, PDFs and songs stay in the app's own storage on your phone until you save or share a copy. Opia goes online for one thing only: to check GitHub for a new version of itself, after it has asked you and you've said yes. You can turn that off in Settings. The only other thing it asks for is the microphone, when you record in Groove.</p>
       <p class="margin hand write" data-i18n="p.m">no account · no ads · no tracking</p>
     </div>
   </section>
@@ -176,6 +176,7 @@ document.documentElement.classList.add('js'); try { if (localStorage.getItem('op
       <details><summary data-i18n="q1">Is it on the Play Store?</summary><p data-i18n="a1">Not yet. You install the APK from this page. Play Protect may warn that it doesn't recognise the app; it says that about any app from outside the store.</p></details>
       <details><summary data-i18n="q2">Which phones does it run on?</summary><p data-i18n="a2">Android 10 or newer. It's new: it has been built and tested at phone size in a browser, and real phones are the next test. If something looks wrong, open an issue on GitHub with a screenshot.</p></details>
       <details><summary data-i18n="q3">Is it the same as Opia for Windows?</summary><p data-i18n="a3">It shares the look, the names and Groove's music engine, but it's its own app, made for touch. Lens, Imagine and Folio do less than on Windows, and there's no Motion (video) yet.</p></details>
+      <details><summary data-i18n="q8">How do updates work?</summary><p data-i18n="a8">The first time you open it, Opia asks whether it may check GitHub for new versions. If you say yes, it checks once a day (or when you tap Check for updates in Settings), shows what's new, downloads the update and hands it to Android's installer. You tap Install, and your work stays. The first time, Android also asks you to allow Opia to install updates.</p></details>
       <details><summary data-i18n="q4">Does it sync with my computer?</summary><p data-i18n="a4">No. Nothing leaves the phone unless you save or share a copy. Send files to your computer the way you usually do.</p></details>
       <details><summary data-i18n="q5">Will updating delete my work?</summary><p data-i18n="a5">No. New versions install over the old one and keep everything. Uninstalling the app, or clearing its storage, does delete it, so save copies of anything you want to keep.</p></details>
       <details><summary data-i18n="q6">Is it free?</summary><p data-i18n="a6">Yes. There is nothing to pay and no account to make. The project hasn't chosen an open-source licence yet, so for now the code is shared to look at and build, not to reuse.</p></details>

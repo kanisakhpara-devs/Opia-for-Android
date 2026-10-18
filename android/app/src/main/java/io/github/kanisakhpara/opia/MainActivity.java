@@ -142,6 +142,17 @@ public class MainActivity extends Activity {
         web.evaluateJavascript("typeof Nav !== 'undefined' && Nav.back() ? 1 : 0", closed -> { if (!"1".equals(closed)) finish(); });
     }
 
+    /* hand a result to the page */
+    void answer(String fn, String json) {
+        runOnUiThread(() -> web.evaluateJavascript("typeof Updates !== 'undefined' && " + fn + "(" + json + ")", null));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (web != null) web.evaluateJavascript("typeof Updates !== 'undefined' && Updates.resumed && Updates.resumed()", null);   // back from Android's settings or installer
+    }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -287,7 +298,7 @@ public class MainActivity extends Activity {
 
     File outbox() { File d = new File(getCacheDir(), "out"); d.mkdirs(); return d; }
 
-    private void clearOutbox() { File[] old = outbox().listFiles(); if (old != null) for (File f : old) f.delete(); }
+    private void clearOutbox() { File[] old = outbox().listFiles(); if (old != null) for (File f : old) if (!f.getName().equals(Updater.APK)) f.delete(); }   // a downloaded update survives Android restarting the app
 
     private Uri collection(String kind) {
         if ("pictures".equals(kind)) return MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY);
@@ -398,6 +409,34 @@ public class MainActivity extends Activity {
             Widgets.refreshAll(MainActivity.this);
             return true;
         }
+
+        /* ---- updates. Each call answers later through Updates.* on the page; the page asks you before it calls these. */
+        @JavascriptInterface
+        public void updateCheck() {
+            new Thread(() -> answer("Updates.checked", Updater.check(MainActivity.this))).start();
+        }
+
+        @JavascriptInterface
+        public void updateDownload(String url) {
+            new Thread(() -> answer("Updates.downloaded", Updater.download(MainActivity.this, url, (done, total) -> answer("Updates.progress", "[" + done + "," + total + "]")))).start();
+        }
+
+        /* "installer" when Android's install screen opened, "settings" when it first needs you to allow Opia to install updates */
+        @JavascriptInterface
+        public String updateInstall() {
+            if (!getPackageManager().canRequestPackageInstalls()) {
+                runOnUiThread(() -> startActivity(new Intent(android.provider.Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, Uri.parse("package:" + getPackageName()))));
+                return "settings";
+            }
+            Uri uri = ShareProvider.uriFor(MainActivity.this, Updater.apk(MainActivity.this));
+            Intent i = new Intent(Intent.ACTION_VIEW).setDataAndType(uri, "application/vnd.android.package-archive")
+                .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
+            runOnUiThread(() -> startActivity(i));
+            return "installer";
+        }
+
+        @JavascriptInterface
+        public boolean canInstall() { return getPackageManager().canRequestPackageInstalls(); }
 
         @JavascriptInterface
         public void setBars(String hex, boolean light) {

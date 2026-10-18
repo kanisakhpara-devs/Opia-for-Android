@@ -2,6 +2,33 @@
 
 Every change to Opia for Android is listed here, newest first, with what was tested and what was not. Work done in a cloud session says so: it was tested in headless Chromium at phone size, not on a phone.
 
+## 0.4: Updates from GitHub (cloud session, 2026-10-18)
+
+**Added** an update wizard (`www/js/updates.js`, `Updater.java`).
+
+**How it asks:**
+- A few seconds after the first start it asks: "To look for a new version, Opia needs to go online and ask GitHub… Nothing about you, your phone or your files is sent."
+- There is a box to check automatically once a day.
+- **Settings → Updates** has **Check for updates**, the daily switch, and **Don't go online**.
+
+**What it does:**
+- When there's a new release it shows what's new (the changes since the last release) and offers **Update now**.
+- It downloads Opia.apk with a progress bar, then checks that it is this app (same package name) and newer than the installed copy.
+- It hands the file to Android's installer, where you tap **Install**.
+- The first time, it walks you through Android's **Allow from this source** setting, then carries on when you come back.
+- A downloaded update survives Android restarting the app.
+
+**Changed:**
+- **Two new permissions:** internet and "request install packages". **The app is no longer "no internet permission at all".**
+  - Only `Updater.java` goes online. It only talks to `api.github.com` for this repository's latest release, and only downloads from this repository's release files.
+  - The page itself still can't reach the network: every request it makes is answered from inside the APK or refused.
+- **The website and README** say so honestly now: "offline, unless you say so". There is a new FAQ answer and a new Updates section.
+- **Release notes** are now the list of changes since the previous release, which the wizard shows.
+
+**Tested** (headless Chromium with a fake Android bridge): the first-start question, Allow, checking, the offer with notes, the download progress, the "one more step" screen, resuming after allowing installs, the installer call, and turning updates off in Settings. There were no script errors. The new Java compiles against the Android 14 framework classes.
+
+**Not tested:** downloading and installing on a real phone. The first real test is updating to the next build from this one.
+
 ## 0.3: Home-screen widgets (cloud session, 2026-10-18)
 
 **Added** seven home-screen widgets, in the quiet dark card design (A) you picked:

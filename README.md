@@ -5,7 +5,7 @@
 <h1 align="center">Opia for Android</h1>
 
 <p align="center">
-  <b>Photos, pictures, PDFs and songs on your phone. No account, no cloud, not even an internet permission.</b>
+  <b>Photos, pictures, PDFs and songs on your phone. No account, no cloud, and offline unless you allow update checks.</b>
 </p>
 
 <p align="center">
@@ -94,6 +94,12 @@ Long-press your home screen, tap **Widgets** and find **Opia**:
 
 The quotes come with the app: 44 of them, from Seneca and Marcus Aurelius to Feynman, Baldwin, Beckett, Le Guin and Pratchett. Each one is traced to the speech, book or letter it comes from, which is shown underneath. Quotes that are often misattributed are left out. The other widgets show what Opia last saved, so they update when you use the app. All of them can be resized.
 
+## 🔄 Updates
+
+The first time you open it, Opia asks whether it may check GitHub for new versions. Nothing about you or your files is sent. If you say yes, it checks once a day (switchable in **Settings → Updates**, where there's also **Check for updates**).
+
+When there's a new version, it shows what's new and offers **Update now**. It then downloads `Opia.apk` and checks that it really is a newer Opia, signed for this app. Android's own installer finishes the job: you tap **Install**, and your work stays. The first time, Android also asks you to **allow Opia to install updates**, and the app walks you through that.
+
 ## 📲 Install
 
 1. On your phone, open **[Opia.apk](https://github.com/kanisakhpara-devs/Opia-for-Android/releases/latest/download/Opia.apk)** (about 6 MB).
@@ -111,7 +117,7 @@ It needs **Android 10 or newer**. It isn't on the Play Store, so Play Protect ma
 
 ## 🔒 Private by design
 
-The app has **no internet permission**. Your photos, pictures, PDFs and songs live in the app's own storage until you save or share a copy. The only permission it asks for is the **microphone**, and only when you record in Groove.
+Your photos, pictures, PDFs and songs live in the app's own storage until you save or share a copy. Opia goes online for **one thing only**: checking this repository's releases for a new version, and only after it has asked you and you've said yes. You can turn it off in Settings. Only `Updater.java` can go online, and only to GitHub; the app's screens can't reach the internet at all. The only other permission it asks for is the **microphone**, and only when you record in Groove.
 
 ## 🛠 How it's built
 
@@ -143,6 +149,7 @@ The app has **no internet permission**. Your photos, pictures, PDFs and songs li
   - Marks are written into the page when you save. Changing pages writes in the marks added so far.
 - **Groove:** voice recordings are lined up using the delay the phone reports, which is close but not exact on every phone. Wear headphones, or the music is recorded too.
 - **Storage:** uninstalling the app or clearing its storage deletes your library. Copies saved to Pictures, Music and Download stay.
+- **Updates aren't silent:** Android always asks you to confirm an install. Only apps from the Play Store update without asking.
 - **Not here yet:** Motion (video), and syncing with Opia for Windows.
 
 ## 📜 Credits and licences

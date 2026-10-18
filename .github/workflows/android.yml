@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0     # the history since the last release becomes its notes
 
       - uses: actions/setup-java@v4
         with:
@@ -67,7 +69,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           VERSION: 0.2.${{ github.run_number }}
         run: |
-          gh release create "v$VERSION" "$RUNNER_TEMP/Opia.apk" \
-            --target "$GITHUB_SHA" --latest \
-            --title "Opia for Android $VERSION" \
-            --notes "Built from ${GITHUB_SHA::7}. Open **Opia.apk** on your phone to install or update (Android 10 or newer). What changed is in [CHANGELOG.md](https://github.com/${GITHUB_REPOSITORY}/blob/main/CHANGELOG.md)."
+          # the notes are what changed since the last release, one line per change: the app's update wizard shows them
+          prev=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || true)
+          if [ -n "$prev" ]; then notes=$(git log --no-merges --format='- %s' "$prev"..HEAD); else notes=$(git log -1 --format='- %s'); fi
+          gh release create "v$VERSION" "$RUNNER_TEMP/Opia.apk" --target "$GITHUB_SHA" --latest \
+            --title "Opia for Android $VERSION" --notes "$notes"

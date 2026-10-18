@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- No INTERNET permission: Opia for Android never goes online. Everything it shows is packed inside the app. -->
+<!-- Opia only goes online to check GitHub for a new version of itself, and only after you've allowed it in the app.
+     The page you see can't reach the internet at all; only the update code in MainActivity can, and only to GitHub. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Groove records your voice; WebView needs both of these for the microphone -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- updates: ask GitHub for the newest release, download it, and hand it to Android's installer -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
         android:label="Opia"

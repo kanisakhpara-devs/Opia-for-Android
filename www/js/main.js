@@ -17,6 +17,7 @@ const App = {
     const go = location.hash.match(/link=([^&]+)/);      // opened from a home-screen widget
     if (go) { history.replaceState(null, '', location.pathname); this.link(decodeURIComponent(go[1])); }
     Widgets.soon();
+    Updates.boot();
   },
   /* a widget's link: lens, lens/add, lens/photo/<id>, imagine/new, imagine/pic/<id>, folio/open, folio/doc/<id>, groove/start, groove/song/<id> */
   link(path) {
@@ -72,6 +73,7 @@ const App = {
         this.bars();
       }),
       h('div', { class: 'sec' }, t('Storage used')), h('p', { style: { margin: '0 0 6px', color: 'var(--hi)', fontWeight: 800 } }, used || '—'), h('p', { style: { margin: 0, color: 'var(--dim)' } }, t('Everything stays on this phone.')),
+      Updates.settings(again => { s.close(); if (again) this.settings(); }),
       h('div', { class: 'sec' }, t('About Opia')),
       h('p', { style: { margin: '0 0 8px', color: 'var(--dim)', fontSize: '14.5px' } }, 'Opia for Android ' + (window.OpiaAndroid && OpiaAndroid.version ? OpiaAndroid.version() : '(web)') + '. ',
         'PDF viewing: pdf.js (Apache 2.0). PDF editing: pdf-lib (MIT). Instrument samples: Fluid R3 GM SoundFont by Frank Wen, CC BY 3.0. Typefaces: Nunito and Caveat, SIL Open Font License.'),
