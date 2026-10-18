@@ -45,7 +45,7 @@ All of them use Nunito, Opia's ink background and the workspace icons, and they 
 - 44 quotes in `android/app/src/main/res/raw/quotes.json`, each with its source: Churchill, Seneca, Marcus Aurelius, Epictetus, Feynman, Orwell, both Roosevelts, Kennedy, King, Douglass, Baldwin, Morrison, Beckett, Vonnegut, Le Guin, Pratchett, Douglas Adams, Turing and others.
 - Left out: well-known misattributions, such as "Success is not final…" for Churchill. Also two quotes whose source I couldn't pin down.
 - One quote a day, the same on every quote widget. Tapping the quote moves that widget on to another one; tapping the logo opens Opia.
-- The 3 × 1 strip only uses the 13 short quotes.
+- The 3 × 1 strip only uses the 11 short quotes.
 
 **How it works:**
 - A widget can't read the app's storage. So whenever photos, pictures, PDFs or songs change, the app (`www/js/widgets.js`) hands Android a summary and small pictures.
