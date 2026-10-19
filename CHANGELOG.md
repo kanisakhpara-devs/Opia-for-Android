@@ -2,6 +2,24 @@
 
 Every change to Opia for Android is listed here, newest first, with what was tested and what was not. Work done in a cloud session says so: it was tested in headless Chromium at phone size, not on a phone.
 
+## 0.5: 174 more quotes and a shuffle button (cloud session, 2026-10-19)
+
+**Changed**
+- The quote widgets have a small shuffle button in the top-right corner. Only that button changes the quote. A tap anywhere else opens Opia.
+- Every quote's source now carries a year: when it was said, or when the book, play or film came out. Ancient and translated texts get the year they were written, with "c." when it is approximate.
+
+**Added** 174 quotes, for 218 in total from 161 people. They cover novels and plays, philosophy, science and computing, public figures (living and dead), and film and TV. 69 are short enough for the one-line widget. The full list is in `QUOTES.md`, with the source each one was checked against.
+
+**Not done, honestly:**
+- The goal was 300 new quotes. I stopped at 174 when the user said that was enough.
+- About 85 more candidates were found but couldn't be checked, so they were left out.
+- Checking used web search. Wikiquote, Quote Investigator, Gutenberg and Wikipedia couldn't be opened directly from the cloud session, so many quotes were checked against search results that quote the original source, not against the original page itself. A few could still be slightly misworded. If you find one, open an issue.
+- One quote was dropped because it reads badly out of context. A film quote is credited to its character and actor, not to the real person.
+
+**Tested:** the Java compiles against the Android SDK. `quotes.json` parses, and every entry has a quote, a name and a source with a year.
+
+**Not tested:** the shuffle button on a real home screen. The new layout hasn't been seen on a phone.
+
 ## 0.4: Updates from GitHub (cloud session, 2026-10-18)
 
 **Added** an update wizard (`www/js/updates.js`, `Updater.java`).

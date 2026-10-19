@@ -84,7 +84,7 @@ Long-press your home screen, tap **Widgets** and find **Opia**:
 
 | Widget | Size | What it shows |
 | --- | --- | --- |
-| **Quote of the day** | 3 × 4 | A quote worth thinking about, with who said it and where. Tap it for another. |
+| **Quote of the day** | 3 × 4 | A quote worth thinking about, with who said it, where and when. Tap the shuffle button for another. |
 | **Quote of the day, short** | 3 × 1 | A short quote in one line. |
 | **Photo of the day** | 2 × 2 | A different photo from Lens every day, favourites first. |
 | **Favourites** | 4 × 1 | Your latest four favourite photos. |
@@ -92,7 +92,7 @@ Long-press your home screen, tap **Widgets** and find **Opia**:
 | **Recent PDFs** | 3 × 2 | Your last three PDFs, one tap to reopen. |
 | **Pick up where you left off** | 2 × 2 | The last picture, PDF or song you worked on. |
 
-The quotes come with the app: 44 of them, from Seneca and Marcus Aurelius to Feynman, Baldwin, Beckett, Le Guin and Pratchett. Each one is traced to the speech, book or letter it comes from, which is shown underneath. Quotes that are often misattributed are left out. The other widgets show what Opia last saved, so they update when you use the app. All of them can be resized.
+The quotes come with the app: 218 of them from 161 people, from Seneca, Confucius and Marcus Aurelius to Feynman, Baldwin, Le Guin, Pratchett and lines from film and TV. Each one is traced to the speech, book, letter or film it comes from, shown underneath with the year it was said or published ("c." when the date is approximate). The full list, with where each was checked, is in [QUOTES.md](QUOTES.md). Quotes that are often misattributed are left out. The other widgets show what Opia last saved, so they update when you use the app. All of them can be resized.
 
 ## 🔄 Updates
 
