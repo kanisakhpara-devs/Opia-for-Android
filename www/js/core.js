@@ -93,7 +93,7 @@ const ES = {
   'Choose photos': 'Elegir fotos', 'Choose a PDF': 'Elegir un PDF', 'Move': 'Mover', 'Drag the mark to where it goes.': 'Arrastra la marca a su sitio.', 'Rotate page': 'Girar página', 'Move earlier': 'Mover antes', 'Move later': 'Mover después', 'Delete page': 'Eliminar página', 'Duplicate page': 'Duplicar página', 'Page {n}': 'Página {n}', 'Bigger': 'Más grande', 'Smaller': 'Más pequeño',
   'Some letters are not in the PDF font and were left out.': 'Algunas letras no están en la fuente del PDF y se omitieron.', 'Revert to the original': 'Volver al original', 'Zoom': 'Zoom', 'Apply': 'Aplicar',
   'Help': 'Ayuda', 'Message Opia\'s help number on WhatsApp:': 'Escribe al número de ayuda de Opia por WhatsApp:', 'Messages are preferred; calls may not be answered.': 'Se prefieren los mensajes; puede que no se contesten las llamadas.', 'Open WhatsApp': 'Abrir WhatsApp',
-  '{s}, just the changes': '{s}, solo los cambios',
+  '{s}, just the changes': '{s}, solo los cambios', 'Midnight Teal': 'Verde azulado nocturno', 'Lilac Haze': 'Bruma lila',
   // Groove
   'Riffs that always fit': 'Riffs que siempre encajan', 'A song here is a few short riffs that loop together. Pick a style and Opia writes the first draft; then change whatever you like.': 'Aquí una canción son unos riffs cortos que se repiten juntos. Elige un estilo y Opia escribe el primer borrador; luego cambia lo que quieras.',
   'New song': 'Canción nueva', 'Start me off': 'Empieza por mí', 'Or pick a style': 'O elige un estilo', 'Empty song': 'Canción vacía', 'Drums': 'Batería', 'Bass': 'Bajo', 'Chords': 'Acordes', 'Melody': 'Melodía', 'Voice': 'Voz',

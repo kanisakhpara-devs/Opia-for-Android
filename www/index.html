@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/app.css">
 <script>
   /* the theme before anything paints: dark, light, or whatever the phone uses */
-  try { const t = localStorage.getItem('opia-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) { /* storage blocked */ }
+  try { const t = localStorage.getItem('opia-theme'); if (['dark', 'light', 'midnight', 'lilac'].includes(t)) document.documentElement.dataset.theme = t; } catch (e) { /* storage blocked */ }
 </script>
 </head>
 <body>

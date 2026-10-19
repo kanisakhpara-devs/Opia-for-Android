@@ -114,7 +114,7 @@ It needs **Android 10 or newer**. It isn't on the Play Store, so Play Protect ma
 
 - **Light and dark**, following the phone or your choice. **English and Spanish.**
 - **A back button that makes sense:** it closes the top sheet or screen first, and leaves the app only when nothing is open.
-- **For screen readers:** every button and slider has a spoken name, and an automated accessibility check (axe-core) passes in both themes.
+- **For screen readers:** every button and slider has a spoken name, and an automated accessibility check (axe-core) passes in every theme: Dark, Light, Midnight Teal and Lilac Haze. Pick one in **Settings → Theme**, or leave it on Like the phone.
 - **Saves where you look:** Pictures, Music and Download, each in an Opia folder. Share sends files straight to other apps.
 
 ## 🔒 Private by design

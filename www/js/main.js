@@ -62,13 +62,14 @@ const App = {
 
   async settings() {
     const pick = (cur, opts, set) => h('div', { class: 'chips', role: 'radiogroup' }, opts.map(([k, label]) => h('button', { class: 'chip', role: 'radio', 'aria-checked': String(cur === k), 'aria-pressed': String(cur === k), onclick: () => { set(k); s.close(); this.settings(); } }, label)));
+    pick.wrap = (...a) => { const el = pick(...a); el.style.flexWrap = 'wrap'; return el; };   // five themes don't fit on one line
     let used = '';
     try { const e = await navigator.storage.estimate(); used = (e.usage / 1048576).toFixed(e.usage > 1e8 ? 0 : 1) + ' MB'; } catch (e) { /* not available */ }
-    const theme = Prefs.get('theme', 'auto');
+    const theme = document.documentElement.dataset.theme || 'auto';   // index.html sets it from 'opia-theme' before the page draws
     const s = UI.sheet({ title: t('Settings'), body: h('div', {},
       h('div', { class: 'sec' }, t('Language')), pick(I18N.lang, [['en', 'English'], ['es', 'Español']], k => { I18N.lang = k; Prefs.set('lang', k); this.redraw(); }),
-      h('div', { class: 'sec' }, t('Theme')), pick(theme, [['auto', t('Like the phone')], ['dark', t('Dark')], ['light', t('Light')]], k => {
-        Prefs.set('theme', k); try { k === 'auto' ? localStorage.removeItem('opia-theme') : localStorage.setItem('opia-theme', k); } catch (e) { /* blocked */ }
+      h('div', { class: 'sec' }, t('Theme')), pick.wrap(theme, [['auto', t('Like the phone')], ['dark', t('Dark')], ['light', t('Light')], ['midnight', t('Midnight Teal')], ['lilac', t('Lilac Haze')]], k => {
+        try { k === 'auto' ? localStorage.removeItem('opia-theme') : localStorage.setItem('opia-theme', k); } catch (e) { /* blocked */ }
         if (k === 'auto') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = k;
         this.bars();
       }),

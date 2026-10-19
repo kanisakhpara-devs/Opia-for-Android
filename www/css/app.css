@@ -12,7 +12,7 @@
   color-scheme: dark;
 }
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme=dark]) {
+  :root:not([data-theme]) {
     --bg: #f2efe8; --panel: #fbfaf7; --raise: #ffffff; --raise2: #ebe7de; --line: #d9d3c6; --input: #ffffff;
     --text: #3f3d38; --dim: #66625a; --hi: #1b1a17; --gold: #e2b93b; --gold-text: #7c5d0c; --onacc: #ffffff;
     --shadow: rgba(60, 45, 20, .22); --scrim: rgba(20, 16, 8, .45); --danger: #b8401f;
@@ -25,6 +25,21 @@
   --text: #3f3d38; --dim: #66625a; --hi: #1b1a17; --gold: #e2b93b; --gold-text: #7c5d0c; --onacc: #ffffff;
   --shadow: rgba(60, 45, 20, .22); --scrim: rgba(20, 16, 8, .45); --danger: #b8401f;
   --lens: #3550e8; --imagine: #7d43d6; --folio: #0a6a96; --groove: #b23a18;
+  color-scheme: light;
+}
+/* the two extra themes, after Opia for Windows' Midnight Teal and Lilac Haze (Midnight a little more teal here) */
+:root[data-theme=midnight] {
+  --bg: #0c1b20; --panel: #122a31; --raise: #1a3a42; --raise2: #21464f; --line: #24464f; --input: #08151a;
+  --text: #b3c6cd; --dim: #a0b4bc; --hi: #eef6fa; --gold: #35b5a4; --gold-text: #7fe3d4; --onacc: #04201c;
+  --shadow: rgba(0, 0, 0, .6); --scrim: rgba(0, 4, 8, .62); --danger: #ff7a5c;
+  --lens: #7d92ff; --imagine: #c39bff; --folio: #6fd0ff; --groove: #ff7a5c;
+  color-scheme: dark;
+}
+:root[data-theme=lilac] {
+  --bg: #e3dff2; --panel: #f6f4fd; --raise: #ffffff; --raise2: #ece8f8; --line: #c9c2e2; --input: #ffffff;
+  --text: #4a4660; --dim: #5f5a78; --hi: #1c1830; --gold: #6a4bef; --gold-text: #5a3de0; --onacc: #ffffff;
+  --shadow: rgba(60, 40, 120, .22); --scrim: rgba(28, 24, 48, .45); --danger: #a8381a;
+  --lens: #3550e8; --imagine: #7339cc; --folio: #0a6a96; --groove: #b23a18;
   color-scheme: light;
 }
 body[data-ws=lens] { --acc: var(--lens); --acc-text: var(--lens); }

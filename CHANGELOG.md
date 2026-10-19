@@ -2,6 +2,25 @@
 
 Every change to Opia for Android is listed here, newest first, with what was tested and what was not. Work done in a cloud session says so: it was tested in headless Chromium at phone size, not on a phone.
 
+## 0.8: Two new themes (cloud session, 2026-10-19)
+
+**Added** two themes in **Settings → Theme**, after the two extra themes in Opia for Windows:
+- **Midnight Teal:** dark, with a deep teal tint. It's a little more teal than the Windows version, because at phone size that one looked almost the same as Dark.
+- **Lilac Haze:** light and lilac. The workspace colours were darkened slightly so text keeps enough contrast.
+
+The Spanish names are "Verde azulado nocturno" and "Bruma lila".
+
+**Fixed:**
+- The theme chips now wrap onto a second line. Five didn't fit on one.
+- Settings always highlighted "Like the phone", whatever theme you had picked. The theme was saved twice under the same name in two formats, so reading it back failed. Settings now reads the theme the page is actually using.
+- "Like the phone" no longer overrides a chosen theme when the phone is in light mode.
+
+**Tested:**
+- In headless Chromium at phone size: both themes in all four workspaces, with the phone set to light and to dark.
+- axe-core (WCAG 2 A/AA) found no problems in either theme.
+
+**Not tested:** on a phone. This is also the first release that can arrive as a patch, so it's the real test of the patch download.
+
 ## 0.7: Updates download only what changed (cloud session, 2026-10-19)
 
 **Changed:** an update usually downloads a small patch, not the whole 6 MB APK.
