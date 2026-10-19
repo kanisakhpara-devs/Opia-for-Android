@@ -18,7 +18,9 @@ Every change to Opia for Android is listed here, newest first, with what was tes
 
 **Tested:** the Java compiles against the Android SDK. `quotes.json` parses, and every entry has a quote, a name and a source with a year.
 
-**Not tested:** the shuffle button on a real home screen. The new layout hasn't been seen on a phone.
+**Tested on a real phone (by the user, 2026-10-19):** both quote widgets (card and short strip) on v0.2.5, including the shuffle button. They work well.
+
+**Not tested on a phone:** the other five widgets.
 
 ## 0.4: Updates from GitHub (cloud session, 2026-10-18)
 
