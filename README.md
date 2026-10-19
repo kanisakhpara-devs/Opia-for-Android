@@ -13,7 +13,8 @@
   <a href="https://kanisakhpara-devs.github.io/Opia-for-Android/"><b>Website</b></a> ·
   <a href="#-install"><b>Install</b></a> ·
   <a href="CHANGELOG.md"><b>Changelog</b></a> ·
-  <a href="https://github.com/kanisakhpara-devs/Opia-for-Windows"><b>Opia for Windows</b></a>
+  <a href="https://github.com/kanisakhpara-devs/Opia-for-Windows"><b>Opia for Windows</b></a> ·
+  <a href="https://github.com/kanisakhpara-devs/Opia-for-Mac"><b>Opia for Mac</b></a>
 </p>
 
 ---
