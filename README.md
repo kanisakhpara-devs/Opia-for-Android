@@ -152,6 +152,10 @@ Your photos, pictures, PDFs and songs live in the app's own storage until you sa
 - **Updates aren't silent:** Android always asks you to confirm an install. Only apps from the Play Store update without asking.
 - **Not here yet:** Motion (video), and syncing with Opia for Windows.
 
+## 💬 Need help?
+
+Message Opia's help number on WhatsApp: **[+91 8450973767](https://wa.me/918450973767)**. Messages are preferred; calls may not be answered. The app has it too, under Settings › Help.
+
 ## 📜 Credits and licences
 
 - PDF viewing: **pdf.js**, Apache License 2.0 (`www/vendor/pdfjs/LICENSE.txt`). PDF editing: **pdf-lib**, MIT (`www/vendor/pdf-lib-LICENSE.md`).

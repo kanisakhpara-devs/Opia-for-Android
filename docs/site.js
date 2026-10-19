@@ -48,7 +48,7 @@ const ES = {
   q7: '¿Qué no puede hacer?', a7: 'Las fotos HEIC y RAW casi nunca se abren, el texto añadido a los PDF solo tiene letras de Europa occidental, y las grabaciones de voz se alinean bien pero no perfectamente. El README enumera todos los límites.',
   'd.h': 'Consigue Opia para Android', 'd.p': 'Gratis, para Android 10 y posteriores.', 'd.btn': 'Descargar Opia.apk',
   'd.note': 'Todas las versiones están en la <a href="https://github.com/kanisakhpara-devs/Opia-for-Android/releases">página de versiones</a>. ¿Prefieres el ordenador? <a href="https://kanisakhpara-devs.github.io/Opia-for-Windows/">Opia para Windows</a> tiene los cinco espacios, Motion incluido.',
-  'ft.p': 'Opia para Android. Crea cosas. Que sigan siendo tuyas.', 'ft.changelog': 'Registro de cambios', 'ft.releases': 'Versiones',
+  'ft.p': 'Opia para Android. Crea cosas. Que sigan siendo tuyas.', 'ft.changelog': 'Registro de cambios', 'ft.help': '¿Necesitas ayuda? Escríbenos por WhatsApp:', 'ft.help2': 'Se prefieren los mensajes; puede que no se contesten las llamadas.', 'ft.releases': 'Versiones',
   'ft.c1': 'Los PDF se muestran con pdf.js (Apache 2.0) y se modifican con pdf-lib (MIT).',
   'ft.c2': 'Muestras de instrumentos: SoundFont Fluid R3 GM, CC BY 3.0. Tipografías: Nunito y Caveat, SIL Open Font License.',
   'ft.c3': 'Las imágenes de las capturas se generaron para esta página; no son fotos reales.',

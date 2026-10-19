@@ -2,6 +2,21 @@
 
 Every change to Opia for Android is listed here, newest first, with what was tested and what was not. Work done in a cloud session says so: it was tested in headless Chromium at phone size, not on a phone.
 
+## 0.6: Help number on WhatsApp (cloud session, 2026-10-19)
+
+**Added** a help number, +91 8450973767, for messages on WhatsApp. It's in three places:
+- **Settings → Help**, with an Open WhatsApp button. The link is `https://wa.me/918450973767`, which Android hands to WhatsApp, or to the browser if WhatsApp isn't installed.
+- The README.
+- The website footer.
+
+Each says messages are preferred and calls may not be answered. Spanish translations are included.
+
+**Also changed:** releases are now named "Opia for Android 0.2.N (Alpha)". They stay the latest release, so the download link and in-app updates keep working.
+
+**Tested:** the Settings sheet and the website footer, at phone size in headless Chromium.
+
+**Not tested:** the button on a phone.
+
 ## 0.5: 174 more quotes and a shuffle button (cloud session, 2026-10-19)
 
 **Changed**
