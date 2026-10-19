@@ -417,8 +417,8 @@ public class MainActivity extends Activity {
         }
 
         @JavascriptInterface
-        public void updateDownload(String url) {
-            new Thread(() -> answer("Updates.downloaded", Updater.download(MainActivity.this, url, (done, total) -> answer("Updates.progress", "[" + done + "," + total + "]")))).start();
+        public void updateDownload(String url, String full) {
+            new Thread(() -> answer("Updates.downloaded", Updater.download(MainActivity.this, url, full, (done, total) -> answer("Updates.progress", "[" + done + "," + total + "]")))).start();
         }
 
         /* "installer" when Android's install screen opened, "settings" when it first needs you to allow Opia to install updates */

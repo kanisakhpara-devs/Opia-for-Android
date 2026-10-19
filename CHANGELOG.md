@@ -2,6 +2,25 @@
 
 Every change to Opia for Android is listed here, newest first, with what was tested and what was not. Work done in a cloud session says so: it was tested in headless Chromium at phone size, not on a phone.
 
+## 0.7: Updates download only what changed (cloud session, 2026-10-19)
+
+**Changed:** an update usually downloads a small patch, not the whole 6 MB APK.
+- The release build makes a patch from each of the last five releases to the new one (`android/tools/make_patch.py`, using the bsdiff algorithm) and attaches them to the release as `Opia-from-<version code>.patch`.
+- The app downloads the patch for its own version and rebuilds the new APK from the one installed (`Patch.java`). It then checks the result as before: it must be Opia, and it must be newer.
+- The patch carries SHA-256 hashes of the old and new APK, so a wrong or damaged patch is rejected. When that happens, or when there is no patch for your version, the whole APK is downloaded instead.
+- The update screen shows the patch size, for example "24 KB, just the changes".
+
+**Honestly:**
+- Android still installs a complete app. No Android app can install only a change, the Play Store included. What this saves is the download.
+- The first update after this one still downloads the whole APK, because the version you have now doesn't know about patches yet. The ones after that use patches.
+
+**Tested:**
+- Real releases 0.2.5 → 0.2.7: the patch is 24 KB, against 6.1 MB for the full APK.
+- `Patch.java` rebuilds 0.2.7 byte for byte from 0.2.5, in about 0.1 s on a desktop JVM, and rejects the patch when given the wrong starting APK.
+- All the Java compiles against the Android SDK. The update screen was checked in headless Chromium.
+
+**Not tested:** a patched update on a real phone.
+
 ## 0.6: Help number on WhatsApp (cloud session, 2026-10-19)
 
 **Added** a help number, +91 8450973767, for messages on WhatsApp. It's in three places:

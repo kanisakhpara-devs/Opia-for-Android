@@ -23,6 +23,7 @@ const Updates = {
   checked(r) { const f = this.wait.checked; delete this.wait.checked; f && f(r); },
   downloaded(r) { const f = this.wait.downloaded; delete this.wait.downloaded; f && f(r); },
   progress([done, total]) { this.onprogress && this.onprogress(done, total); },
+  kb: n => n < 1048576 ? Math.max(1, Math.round(n / 1024)) + ' KB' : (n / 1048576).toFixed(1) + ' MB',
   why(r) { return { offline: t('Could not reach GitHub. Check your connection and try again.'), limited: t('GitHub is limiting how often it can be asked. Try again in an hour.'), none: t('No version of Opia for Android has been published yet.') }[r.error] || r.error || t('Something went wrong.'); },
 
   async open() {
@@ -37,7 +38,7 @@ const Updates = {
   },
 
   offer(r) {
-    const mb = r.size ? ` (${(r.size / 1048576).toFixed(1)} MB)` : '';
+    const kb = this.kb, mb = r.patch && r.patchSize ? ` (${t('{s}, just the changes', { s: kb(r.patchSize) })})` : r.size ? ` (${kb(r.size)})` : '';
     const s = UI.sheet({ title: t('An update is ready'), body: h('div', {},
       h('p', { style: { marginTop: 0, fontWeight: 800, color: 'var(--hi)' } }, t('Opia {v} is ready to download', { v: r.latest }) + mb + '.'),
       r.notes && r.notes.length ? [h('div', { class: 'sec' }, t('What\'s new')), h('ul', { style: { margin: '0 0 12px', paddingLeft: '20px' } }, r.notes.map(n => h('li', {}, n)))] : null,
@@ -48,8 +49,9 @@ const Updates = {
   async download(r) {
     const bar = h('i', { style: { display: 'block', height: '100%', width: '0', background: 'var(--acc)', borderRadius: '6px', transition: 'width .2s' } }), label = h('p', { style: { color: 'var(--dim)', margin: '10px 0 0' } }, '');
     const s = UI.sheet({ title: t('Downloading the update'), body: h('div', {}, h('div', { role: 'progressbar', 'aria-label': t('Downloading the update'), style: { height: '10px', borderRadius: '6px', background: 'var(--line)', overflow: 'hidden' } }, bar), label) });
-    this.onprogress = (d, tot) => { const p = tot ? d / tot : 0; bar.style.width = (p * 100).toFixed(1) + '%'; label.textContent = `${(d / 1048576).toFixed(1)} / ${(tot / 1048576).toFixed(1)} MB`; };
-    const res = await this.call('updateDownload', 'downloaded', r.url);
+    const kb = this.kb;
+    this.onprogress = (d, tot) => { const p = tot ? d / tot : 0; bar.style.width = (p * 100).toFixed(1) + '%'; label.textContent = `${kb(d)} / ${kb(tot)}`; };
+    const res = await this.call('updateDownload', 'downloaded', r.patch || r.url, r.url);
     this.onprogress = null; s.close();
     if (!res.ok) return UI.toast(this.why(res), 'error');
     Prefs.set('upd-ready', res.version);

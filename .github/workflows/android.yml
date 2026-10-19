@@ -58,6 +58,10 @@ jobs:
           cp app/build/outputs/apk/release/app-release.apk "$RUNNER_TEMP/Opia.apk"
           ls -la "$RUNNER_TEMP/Opia.apk"
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - uses: actions/upload-artifact@v4
         with:
           name: Opia-android-0.2.${{ github.run_number }}
@@ -72,5 +76,15 @@ jobs:
           # the notes are what changed since the last release, one line per change: the app's update wizard shows them
           prev=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || true)
           if [ -n "$prev" ]; then notes=$(git log --no-merges --format='- %s' "$prev"..HEAD); else notes=$(git log -1 --format='- %s'); fi
-          gh release create "v$VERSION" "$RUNNER_TEMP/Opia.apk" --target "$GITHUB_SHA" --latest \
+          # patches from the last few releases, so a phone downloads only what changed (android/tools/make_patch.py)
+          python -m pip install -q bsdiff4
+          files=("$RUNNER_TEMP/Opia.apk")
+          for tag in $(gh release list --limit 10 --json tagName --jq '.[].tagName' | grep -E '^v0\.2\.[0-9]+$' | head -5); do
+            code=$((100 + ${tag##*.}))
+            if gh release download "$tag" -p Opia.apk -D "$RUNNER_TEMP/old/$tag"; then
+              python android/tools/make_patch.py "$RUNNER_TEMP/old/$tag/Opia.apk" "$RUNNER_TEMP/Opia.apk" "$RUNNER_TEMP/Opia-from-$code.patch" \
+                && files+=("$RUNNER_TEMP/Opia-from-$code.patch") || true
+            fi
+          done
+          gh release create "v$VERSION" "${files[@]}" --target "$GITHUB_SHA" --latest \
             --title "Opia for Android $VERSION (Alpha)" --notes "$notes"

@@ -98,7 +98,9 @@ The quotes come with the app: 218 of them from 161 people, from Seneca, Confuciu
 
 The first time you open it, Opia asks whether it may check GitHub for new versions. Nothing about you or your files is sent. If you say yes, it checks once a day (switchable in **Settings → Updates**, where there's also **Check for updates**).
 
-When there's a new version, it shows what's new and offers **Update now**. It then downloads `Opia.apk` and checks that it really is a newer Opia, signed for this app. Android's own installer finishes the job: you tap **Install**, and your work stays. The first time, Android also asks you to **allow Opia to install updates**, and the app walks you through that.
+When there's a new version, it shows what's new and offers **Update now**. It then downloads `Opia.apk` and checks that it really is a newer Opia, signed for this app. Android's own installer finishes the job: you tap **Install**, and your work stays.
+
+Usually it doesn't download the whole app. Each release comes with small patches from the five releases before it, typically about 25 KB against 6 MB for the full APK. Opia downloads the patch for the version you have and rebuilds the new APK from the one installed. The patch names the exact APK it starts from and the exact APK it makes, both by SHA-256, so it can only ever produce the published APK. If anything doesn't match, Opia downloads the whole APK instead. Android still installs the complete app, as it does for every app, Play Store ones included. Only the download gets smaller. The first time, Android also asks you to **allow Opia to install updates**, and the app walks you through that.
 
 ## 📲 Install
 
