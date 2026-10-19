@@ -73,4 +73,4 @@ jobs:
           prev=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || true)
           if [ -n "$prev" ]; then notes=$(git log --no-merges --format='- %s' "$prev"..HEAD); else notes=$(git log -1 --format='- %s'); fi
           gh release create "v$VERSION" "$RUNNER_TEMP/Opia.apk" --target "$GITHUB_SHA" --latest \
-            --title "Opia for Android $VERSION" --notes "$notes"
+            --title "Opia for Android $VERSION (Alpha)" --notes "$notes"
